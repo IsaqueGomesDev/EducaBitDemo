@@ -1,0 +1,201 @@
+body {
+  font-family: 'Poppins', sans-serif !important;
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+.navegacao {
+  width: 100%; 
+  box-shadow: 0 0 10px rgb(0, 0, 0, .2);
+  background-color: #f5f5f5;
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  position: relative; 
+}
+
+.logo{
+    
+  margin-top: 5px;
+  width: 80px;
+  height: auto;
+}
+
+.conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.box {
+    padding: 20px;
+}
+
+.login_campo{
+margin-top: 50px;
+width: 30%;
+height: auto;
+margin-left: 36%;
+}
+
+.planos_grade {
+    display: flex;
+    justify-content: center; 
+    gap: 40px;               
+    margin-top: 20px;
+}
+
+.plano {
+     border: 1px solid rgba(128, 128, 128, 0.486);   
+    border-radius: 5px;         
+    padding: 20px;
+    width: 400px;               
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.beneficios {
+  margin-top: 10%;
+  text-align: justify;
+  width: 80%;
+}
+
+
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, .2);
+    background-color: white;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-box {
+    text-align: center;
+}
+
+.logo-box img {
+    width: 120px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-left: 25px;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: #5f5f5f;
+    font-size: 14px;
+    transition: 0.2s;
+    font-weight: bold !important;
+}
+
+.menu-item:hover {
+  color: #006dac98;
+}
+
+.logout {
+    margin-top: 110%;
+    color: #d9534f;
+    cursor: pointer;
+    font-size: 14px;
+    padding-left: 25px;
+}
+
+.logout i {
+    margin-right: 6px;
+}
+
+.content {
+    flex: 1;
+    padding: 25px 40px;
+}
+
+.header {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h4 {
+    font-weight: 600;;
+}
+
+.user-icon {
+    font-size: 32px;
+}
+
+.main-area {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-center {
+    width: 60%;
+    height: 350px;
+    background-color: white;
+    border-radius: 12px;
+    text-align: center;
+    padding-top: 80px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+.book-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.card-topicos {
+    width: 30%;
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+.titulo-topicos {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.topic {
+    color: #5f5f5f;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.topic:hover {
+    color: #006dac98;
+}
+
+.conteudo_sobre{
+margin-left: 200px;              
+padding: 20px;
+width: 600px;                   
+}
+
+.conteudo_sobre img{
+width: 150px;
+display: block;
+margin: 0 auto 20px auto; 
+}
+
+.conteudo_sobre p{
+text-align: justify;
+font-size: 15px;
+line-height: 1.7;
+margin-bottom: 15px;
+}
