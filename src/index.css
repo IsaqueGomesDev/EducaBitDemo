@@ -203,6 +203,9 @@ body, html{
     padding: 25px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
 }
+.card-topicos a{
+    text-decoration: none;
+}
 
 .card-topicos img {
     width: 90%;
@@ -694,6 +697,9 @@ body, html{
     font-weight: 600;
     margin-bottom: 30px;
 }
+.card-lateral-videos a{
+    text-decoration: none;
+}
 
 .card-lateral-videos .elementos-card {
     border-radius: 12px;
@@ -719,3 +725,94 @@ body, html{
     word-break: break-word;
     overflow-wrap: break-word;
 }
+
+/*tela filtro de vídeos*/
+
+.content .btn-voltar{
+    font-size: 20px;
+    font-weight: 600;
+    color: #5B1A00;
+    text-decoration: none;
+    
+}
+.tela-filtro {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;   
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-top: 100px;
+}
+
+.tela-filtro .card-header {
+    background-color: white;
+    font-weight: bold;
+    color: #5B1A00; 
+    border-bottom: 1px solid #eee;
+    padding: 15px 20px;
+}
+
+
+.tela-filtro .coluna-filtros {
+    border-right: 1px solid #dee2e6; 
+    padding-right: 20px;
+}
+
+.tela-filtro .grupo-filtro {
+    margin-bottom: 25px;
+}
+
+.tela-filtro .check-titulo {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #5B1A00;
+    margin-bottom: 10px;
+}
+
+.tela-filtro .coluna-botoes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+    padding: 20px;
+}
+
+.tela-filtro .botoes-wrapper {
+    width: 80%; 
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.btn-limpar, .btn-buscar {
+    width: 100%;
+    padding: 10px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.tela-filtro .btn-limpar {
+    background-color: #0069aa;
+    height: 50px;
+}
+
+.tela-filtro .btn-limpar:hover {
+    background-color: white;
+    color: #0069aa;
+
+}
+
+.tela-filtro .btn-buscar {
+    background-color: #f0a500;
+    height: 50px;
+}
+
+.tela-filtro .btn-buscar:hover {
+    background-color: white;
+    color: #f0a500;
+}
+/*ajuste nos tópicos da página de aulas*/
+
