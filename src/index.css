@@ -1,10 +1,10 @@
-body, html{
+body,
+html {
     font-family: 'Poppins', sans-serif !important;
     background-attachment: fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
 .navegacao {
@@ -203,7 +203,8 @@ body, html{
     padding: 25px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
 }
-.card-topicos a{
+
+.card-topicos a {
     text-decoration: none;
 }
 
@@ -382,7 +383,7 @@ body, html{
     padding: 20px;
     border-radius: 12px;
     width: 70%;
-    height: 680px;
+    height: 580px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -392,13 +393,14 @@ body, html{
 
 .box-pergunta-forum {
     width: 700px;
-    height: 127px;
+    height: 120px;
     background-color: white;
     border-radius: 12px;
     text-align: left;
     padding-top: 10px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-    margin-top: 40px;
+    margin-top: 20px;
+    overflow-y: auto;
 
 }
 
@@ -443,7 +445,7 @@ body, html{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 38px;
+    gap: 10px;
     flex: 1;
 }
 
@@ -453,7 +455,7 @@ body, html{
 
 .card-filtros {
     width: 300px;
-    height: 320px;
+    height: 285px;
     background-color: white;
     border-radius: 12px;
     padding: 20px;
@@ -561,9 +563,27 @@ body, html{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px 40px;
-    /* 20px vertical, 40px horizontal */
-    padding: 20px;
+    gap: 10px 20px;
+    height: calc(100vh - 150px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    scrollbar-width: none;
+    scrollbar-color: #F5AD00 transparent;
+    transition: scrollbar-width 0.3s ease;
+    align-content: flex-start;
+
+}
+
+.cards-container:hover {
+    scrollbar-width: thin;
+}
+
+.cards-container h5 {
+    font-weight: 600;
+    font-size: 18px;
 }
 
 .card {
@@ -573,6 +593,7 @@ body, html{
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     padding: 15px;
+
 }
 
 .card img {
@@ -697,7 +718,8 @@ body, html{
     font-weight: 600;
     margin-bottom: 30px;
 }
-.card-lateral-videos a{
+
+.card-lateral-videos a {
     text-decoration: none;
 }
 
@@ -728,33 +750,34 @@ body, html{
 
 /*tela filtro de vídeos*/
 
-.content .btn-voltar{
+.content .btn-voltar {
     font-size: 20px;
     font-weight: 600;
     color: #5B1A00;
     text-decoration: none;
-    
+
 }
+
 .tela-filtro {
     width: 100%;
     max-width: 1000px;
-    margin: 0 auto;   
+    margin: 0 auto;
     border: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     margin-top: 100px;
 }
 
 .tela-filtro .card-header {
     background-color: white;
     font-weight: bold;
-    color: #5B1A00; 
+    color: #5B1A00;
     border-bottom: 1px solid #eee;
     padding: 15px 20px;
 }
 
 
 .tela-filtro .coluna-filtros {
-    border-right: 1px solid #dee2e6; 
+    border-right: 1px solid #dee2e6;
     padding-right: 20px;
 }
 
@@ -772,19 +795,20 @@ body, html{
 .tela-filtro .coluna-botoes {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center;     
+    justify-content: center;
+    align-items: center;
     padding: 20px;
 }
 
 .tela-filtro .botoes-wrapper {
-    width: 80%; 
+    width: 80%;
     display: flex;
     flex-direction: column;
     gap: 40px;
 }
 
-.btn-limpar, .btn-buscar {
+.btn-limpar,
+.btn-buscar {
     width: 100%;
     padding: 10px;
     font-weight: 600;
@@ -814,5 +838,5 @@ body, html{
     background-color: white;
     color: #f0a500;
 }
-/*ajuste nos tópicos da página de aulas*/
 
+/*ajuste nos tópicos da página de aulas*/
