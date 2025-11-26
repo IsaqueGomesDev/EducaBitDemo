@@ -606,6 +606,11 @@ html {
 .card-body {
     padding: 12px;
 }
+.card .jogo-caracteristicas p{
+    font-weight: 100;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
 
 .card-produtores-jogos {
     width: 300px;
@@ -623,6 +628,7 @@ html {
 .card .btn {
     background-color: #F5AD00;
     color: white;
+    margin-top: 10px
 }
 
 .card .btn:hover {
@@ -748,7 +754,7 @@ html {
     overflow-wrap: break-word;
 }
 
-/*tela filtro de vídeos*/
+/*tela filtro de jogos*/
 
 .content .btn-voltar {
     font-size: 20px;
@@ -839,4 +845,82 @@ html {
     color: #f0a500;
 }
 
-/*ajuste nos tópicos da página de aulas*/
+/*tela de filtrados*/
+.cards-container-filtrados {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 10px 20px;
+    height: calc(100vh - 20px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    scrollbar-width: none;
+    scrollbar-color: #F5AD00 transparent;
+    transition: scrollbar-width 0.3s ease;
+    align-content: flex-start;
+    zoom: 0.7;
+    margin-top: 50px;
+    
+
+}
+.cards-container-filtrados:hover{
+scrollbar-width: thin;
+}
+
+.content .voltar{
+    font-size: 20px;
+    font-weight: 600;
+    color: #5B1A00;
+    text-decoration: none;
+    margin-top: 50px;
+}
+
+/*Jogo acessado*/
+.jogo-acessado{
+    width: 70%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+.jogo-acessado .btn-jogar{
+    background-color: #6FC00C;
+    color: white;
+    font-size: 20px;
+}
+.jogo-acessado .btn-jogar:hover{
+    background-color: transparent;
+    color: #6FC00C;
+}
+.jogo-acessado img{
+    object-fit: contain;
+    height: 350px;
+    
+}
+.jogo-acessado h5{
+    font-weight: 600;
+}
+
+.jogo-acessado .card-text{
+    display: flex;
+    gap: 40px;
+}
+.jogo-acessado .anexos, .guia-pdf, .guia-libras{
+    font-weight: 600;
+}
+.jogo-acessado .guia-pdf,.guia-libras{
+    color: #0077cc;
+    display: flex;
+    gap: 10px;
+}
+.jogo-acessado .guia-pdf:hover,.guia-libras:hover{
+    color: #85949e;
+}
+.jogo-acessado .jogo-acessado-caracteristicas{
+    font-weight: 100;
+    margin-bottom: 10px;
+}

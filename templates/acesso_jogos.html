@@ -12,10 +12,9 @@
     <title>EDUCABIT</title>
 </head>
 
-<body style="background-color: #e7e7eb;">
+<body style="background-color: #F5F5F5;">
     <div class="layout">
-
-        <!-- MENU LATERAL -->
+        <!--MENU PADRÃO-->
         <aside class="sidebar">
             <div class="logo-box">
                 <img src="img/EducaBit_logo.png" alt="logo">
@@ -29,44 +28,35 @@
             </nav>
             <a class="logout" href="tela_inicial.html"><i class="bi bi-box-arrow-left"></i> Logout Account</a>
         </aside>
+        <!---->
 
-        <!-- CONTEÚDO PRINCIPAL -->
         <main class="content">
-
-            <div class="container-fluid"></div>
             <header class="header">
-                <h4>Tag 'Xxxxx'</h4>
+                <h4></h4>
                 <i class="bi bi-person-circle user-icon"></i>
             </header>
-            <div class="voltar">
-                <a href="jogos.html" class="btn-voltar"><i class="bi bi-arrow-left"></i>Voltar</a>
-            </div>
-            <div class="row">
+            <a href="jogos.html" class="btn-voltar"><i class="bi bi-arrow-left"></i>Voltar</a>
 
-                <!-- COLUNA COM OS CARDS -->
-                <div class="col-lg-12">
-                    <div class="cards-container-filtrados">
-
-                        <!--cada card referente a cada jogo-->
-                        <div class="card">
-                            <img src="img/JogoLabAlgoritmo.png" class="card-img-top" alt="Jogo 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Labitinto com algoritmo</h5>
-                                <p class="card-text">informações do jogo 1</p>
-                                <a href="jogos_encontrados.html" class="btn btn-custom">Acessar</a>
-                            </div>
-                        </div>
-                        <div th:if="${listaDeJogos != null and listaDeJogos.empty}" class="alert alert-warning w-100">
-                            Mais nenhum jogo encontrado com essa tag.
-                        </div>
-
+            <div class="card jogo-acessado">
+                <img src="img/JogoCodeCombat.png" class="card-img-top" alt="Jogo 1">
+                <div class="card-body">
+                    <h5 class="card-title">CodeCombat</h5>
+                    <div class="jogo-acessado-caracteristicas">
+                        <span class="tipo">Tipo | Plugado</span>
+                        <span class="nivel">- Nível | Intermediário</span>
+                        <span class="tema">- Tema | Programação</span>
                     </div>
+                    <div class="links-jogo-acessado">
+                        <p class="card-text">
+                            <span class="anexos">ANEXOS</span>
+                            <span class="guia-pdf topic"><i class="bi bi-download"></i>Guia didático (PDF)</span>
+                            <span class="guia-libras topic"><i class="bi bi-download"></i>Guia didático (Versão em Libras)</span>
+                        </div>
+                        <a href="#" class="btn btn-jogar">Jogar agora</a>
                 </div>
             </div>
+        </main>
     </div>
-    </main>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
