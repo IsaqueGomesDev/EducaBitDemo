@@ -1,0 +1,333 @@
+body {
+  font-family: 'Poppins', sans-serif !important;
+  margin: 0;
+  padding: 0;
+}
+
+.navegacao {
+  width: 100%;
+  height: 80px;
+  padding: 5px 20px;
+  background-color: #f5f5f5;
+  box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.nav-itens {
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+  margin-top: 5px;
+}
+
+.conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.box {
+    padding: 20px;
+}
+
+.login_campo{
+margin-top: 50px;
+width: 30%;
+height: auto;
+margin-left: 36%;
+}
+
+.planos_grade {
+    display: flex;
+    justify-content: center; 
+    gap: 40px;               
+    margin-top: 20px;
+}
+
+.plano {
+     border: 1px solid rgba(128, 128, 128, 0.486);   
+    border-radius: 5px;         
+    padding: 20px;
+    width: 400px;               
+    text-align: center;
+    background-color: #ffffff;
+}
+.plano p{
+ font-size: 15px;
+}
+.beneficios {
+  margin-top: 10%;
+  text-align: justify;
+  width: 80%;
+}
+
+
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, .2);
+    background-color: white;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-box {
+    text-align: center;
+}
+
+.logo-box img {
+    width: 120px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-left: 25px;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: #5f5f5f;
+    font-size: 14px;
+    transition: 0.2s;
+    font-weight: bold !important;
+}
+
+.menu-item:hover {
+  color: #006dac98;
+}
+
+.logout {
+    margin-top: 90%;
+    color: #d9534f;
+    cursor: pointer;
+    font-size: 14px;
+    padding-left: 25px;
+}
+
+.logout i {
+    margin-right: 6px;
+}
+
+.content {
+    flex: 1;
+    padding: 25px 40px;
+}
+
+.header {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h4 {
+    font-weight: 600;;
+}
+
+.header a{
+text-decoration: none;
+color: black;
+}
+
+.user-icon {
+    font-size: 32px;
+}
+
+.main-area {
+    margin-top: 30px;
+    display: flex;
+    justify-content:space-around;
+}
+
+.card-center {
+    width: 60%;
+    height: 350px;
+    background-color: white;
+    border-radius: 12px;
+    text-align: center;
+    padding-top: 80px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+.book-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.card-topicos {
+    width: 30%;
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+.card-topicos img {
+    width: 90%;
+    height: auto;
+}
+
+.titulo-topicos {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.topic {
+    color: #5f5f5f;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.topic:hover {
+    color: #006dac98;
+}
+
+.conteudo_sobre{
+margin-left: 200px;              
+padding: 10px;
+width: 600px;                   
+}
+
+.conteudo_sobre img{
+width: 200px;
+display: block;
+margin: 0 auto; 
+}
+
+.conteudo_sobre p{
+text-align: justify;
+font-size: 15px;
+line-height: 1.7;
+margin-bottom: 10px;
+}
+
+.conteudo_sobre i{
+color: #f5ad00;
+}
+
+.carrosel img {
+border-radius: 20px;
+}
+
+.card-topicos img{
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+.contem_user {
+    width: 100%;
+    padding: 40px 60px;
+}
+.header_user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.header_user h4 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.header_user i {
+    font-size: 24px;
+    color: black;
+    cursor: pointer;
+}
+.conteudo_user {
+    width: 60%;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    margin-left: 20%;
+}
+.info_user {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.info_user h6 {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.info_user p {
+    font-size: 15px;
+    margin: 0;
+}
+
+.user-icon2 {
+font-size: 180px;
+}
+
+.hover-link:hover { 
+  background-color: #006dac98;
+  transition: all 0.3s ease; 
+}
+
+.conteiner{
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  margin-left: 30%;
+}
+
+.tabela{
+font-size:15px;
+display:flex;
+margin-bottom: 30px;
+}
+.tabela th{
+  padding: 30px;
+}
+.tabela td{
+  padding: 30px;
+  text-align: center;
+}
+
+.titulo {
+      display: flex;
+      align-items: center; 
+      gap: 16px;
+    }
+
+.titulo h1 {
+      text-align: center;
+      font-size: 20px;
+    }
+
+.adicionar h1{
+margin-top:50px;
+font-weight: bold;
+font-size: 25px;
+margin-right: 50%;
+margin-bottom: 5%;
+}
+.adicionar{
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  margin-left: 50%;
+}
