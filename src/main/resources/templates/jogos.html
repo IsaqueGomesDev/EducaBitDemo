@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="img/EducaBit_logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <title>EDUCABIT</title>
+</head>
+
+<body style="background-color: #f5f5f5;">
+    <div class="layout">
+
+        <!-- MENU LATERAL -->
+       <aside class="sidebar">
+            <div class="logo-box">
+                <img src="img/EducaBit_logo.png" alt="logo">
+            </div>
+            <nav class="menu">
+                <a href="inicio_educabit.html" class="menu-item">Home</a>
+                <a href="jogos.html" class="menu-item">Jogos</a>
+                <a href="aulas.html" class="menu-item active">Aulas</a>
+                <a href="forum.html" class="menu-item">Fórum</a>
+                <a href="sobre.html" class="menu-item">Sobre</a>
+                <a href="criador.html"><button type="button" class="btn btn-warning" style="color: white;font-weight: bold;">Seja criador</button></a>
+            </nav>
+            <a class="logout" href="tela_inicial.html"><i class="bi bi-box-arrow-left"></i> Logout Account</a>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="content">
+            <header class="header">
+                <h4>Jogos</h4>
+                 <a href="user.html"><i class="bi bi-person-circle user-icon"></i></a>
+            </header>
+            <div class="row">
+
+                <!-- COLUNA COM OS CARDS -->
+                <div class="col-lg-8">
+                    <div class="cards-container">
+
+                        <div class="card">
+                            <img src="img/JogoTabuleiro.png" class="card-img-top" alt="Jogo 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Jogo 1</h5>
+                                <p class="card-text">informações do jogo 1</p>
+                                <a href="#" class="btn btn-warning"  style="color: white;">Acessar</a>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <img src="img/JogoFazenda.jpeg" class="card-img-top" alt="Jogo 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Jogo 2</h5>
+                                <p class="card-text">informações do jogo 2</p>
+                                <a href="#" class="btn btn-warning"  style="color: white;">Acessar</a>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <img src="img/JogoMontar.jpeg" class="card-img-top" alt="Jogo 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Jogo 3</h5>
+                                <p class="card-text">informações do jogo 3</p>
+                                <a href="#" class="btn btn-warning"  style="color: white;">Acessar</a>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <img src="img/JogoScratch.jpeg" class="card-img-top" alt="Jogo 4">
+                            <div class="card-body">
+                                <h5 class="card-title">Jogo 4</h5>
+                                <p class="card-text">informações do jogo 4</p>
+                                <a href="#" class="btn btn-warning"  style="color: white;">Acessar</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- COLUNA DA DIREITA (PRODUTORES) -->
+                <div class="col-lg-4">
+                    <a href="filtro_jogos.html"><button type="button" class="btn btn-danger">Filtrar jogos</button></a>
+                    <section class="card-produtores-jogos">
+                        <div class="card-produtores">
+
+                            <h6 class="titulo-produtores">Produtores mais ativos</h6>
+
+                            <div class="item-produtor">
+                                <i class="bi bi-trophy-fill icon-yellow"></i>
+                                <i class="bi bi-person-circle icon-yellow2"></i>
+                                <div>
+                                    <p class="nome-produtor text-yellow">Aureliano</p>
+                                    <span class="qtd">1500 jogos acessados</span>
+                                </div>
+                            </div>
+
+                            <div class="item-produtor">
+                                <i class="bi bi-person-circle icon-blue"></i>
+                                <div>
+                                    <p class="nome-produtor text-blue">Serena</p>
+                                    <span class="qtd">1000 jogos acessados</span>
+                                </div>
+                            </div>
+
+                            <div class="item-produtor">
+                                <i class="bi bi-person-circle icon-orange"></i>
+                                <div>
+                                    <p class="nome-produtor text-orange">Théo</p>
+                                    <span class="qtd">950 jogos acessados</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+    </div>
+</main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
