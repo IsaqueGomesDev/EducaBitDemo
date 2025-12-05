@@ -1,15 +1,13 @@
-package com.educabit.demo.infrastructure.entitys;
-
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+@Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "video")
-@Builder
 public class Video {
 
     @Id
