@@ -1,7 +1,8 @@
-package com.educabit.demo.business;
+package com.educabit.educabit.Service;
 
-import com.educabit.demo.infrastructure.entitys.Video;
+
 import com.educabit.demo.infrastructure.repository.VideoRepository;
+import com.educabit.educabit.Model.Video;
 import org.springframework.stereotype.Service;
 
 @Service
