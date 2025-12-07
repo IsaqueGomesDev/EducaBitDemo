@@ -1,6 +1,7 @@
 package com.educabit.demo.infrastructure.repository;
 
-import com.educabit.demo.infrastructure.entitys.Video;
+
+import com.educabit.educabit.Model.Video;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
