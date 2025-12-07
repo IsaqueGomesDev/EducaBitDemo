@@ -1,7 +1,7 @@
 package com.educabit.demo.controller;
 
-import com.educabit.demo.business.VideoService;
-import com.educabit.demo.infrastructure.entitys.Video;
+import com.educabit.educabit.Model.Video;
+import com.educabit.educabit.Service.VideoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
