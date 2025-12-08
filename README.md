@@ -1,4 +1,6 @@
 Documentação Completa do Projeto EducaBitDemo
+
+
 O projeto EducaBitDemo é uma aplicação de backend robusta, desenvolvida utilizando o framework Spring Boot 3.x e a linguagem Java JDK 21 (LTS). O objetivo central deste sistema é prover uma API RESTful para o gerenciamento de dados educacionais, incluindo usuários, vídeos e diversas atividades. A arquitetura é construída em camadas, priorizando a separação de responsabilidades (Controller, Service, Repository), o que facilita a manutenção e a escalabilidade. Para a persistência de dados, o projeto utiliza o banco de dados PostgreSQL, sendo o controle de versão do esquema (estrutura do banco) gerenciado de forma eficiente pelo Flyway. A produtividade no desenvolvimento é maximizada pelo uso do Lombok, que automatiza a geração de código boilerplate (como getters e setters).
 
 Funcionalidades e Estrutura
