@@ -1,6 +1,6 @@
-package com.educabit.educabit.Controller;
+package com.educabit.educabit.Controllers;
 
-import com.educabit.educabit.Service.VideoService;
+import com.educabit.educabit.Services.VideoService;
 import com.educabit.educabit.Model.Video;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

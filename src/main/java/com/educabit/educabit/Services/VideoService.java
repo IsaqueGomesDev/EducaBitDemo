@@ -1,4 +1,4 @@
-package com.educabit.educabit.Service;
+package com.educabit.educabit.Services;
 
 import com.educabit.educabit.Model.Video;
 import com.educabit.educabit.Repositores.VideoRepository;
