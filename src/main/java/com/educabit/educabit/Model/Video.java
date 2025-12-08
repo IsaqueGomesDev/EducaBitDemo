@@ -1,4 +1,4 @@
-package com.educabit.demo.infrastructure.entitys;
+package com.educabit.educabit.Model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -17,10 +17,10 @@ public class Video {
     private Integer id;
 
     @Column(name = "titulo_video", unique = true)
-    private String titulo_video;
+    private String tituloVideo;
 
     @Column(name = "descricao_video")
-    private String descricao_video;
+    private String descricaoVideo;
 
     @Column(name = "pilar_pc")
     private String pilar_pc;

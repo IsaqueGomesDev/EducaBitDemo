@@ -1,7 +1,7 @@
-package com.educabit.demo.business;
+package com.educabit.educabit.Service;
 
-import com.educabit.demo.infrastructure.entitys.Video;
-import com.educabit.demo.infrastructure.repository.VideoRepository;
+import com.educabit.educabit.Model.Video;
+import com.educabit.educabit.Repositores.VideoRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,19 +18,19 @@ public class VideoService {
     }
 
     public Video buscarVideoPorTitulo_video(String titulo_video) {
-        return videoRepository.findByTitulo_video(titulo_video)
+        return videoRepository.findByTituloVideo(titulo_video)
                 .orElseThrow(() -> new RuntimeException("Vídeo não encontrado"));
     }
 
     public void deletarVideoPorTitulo_video(String titulo_video) {
-        videoRepository.deleteByTitulo_video(titulo_video);
+        videoRepository.deleteByTituloVideo(titulo_video);
     }
 
     public void atualizarVideoPorTitulo(Video video) {
-        Video videoExistente = videoRepository.findByTitulo_video(video.getTitulo_video())
+        Video videoExistente = videoRepository.findByTituloVideo(video.getTituloVideo())
                 .orElseThrow(() -> new RuntimeException("Vídeo não encontrado"));
 
-        videoExistente.setDescricao_video(video.getDescricao_video());
+        videoExistente.setDescricaoVideo(video.getDescricaoVideo());
         videoExistente.setPilar_pc(video.getPilar_pc());
         videoRepository.saveAndFlush(videoExistente);
     }

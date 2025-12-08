@@ -1,8 +1,8 @@
-package com.educabit.demo.dtos;
+package com.educabit.educabit.dtos;
 
 public record VideoDto(
-        String titulo_video,
-        String descricao_video,
+        String tituloVideo,
+        String descricaoVideo,
         String pilar_pc
 ) {
 }

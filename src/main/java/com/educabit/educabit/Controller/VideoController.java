@@ -1,7 +1,7 @@
-package com.educabit.demo.controller;
+package com.educabit.educabit.Controller;
 
-import com.educabit.demo.business.VideoService;
-import com.educabit.demo.infrastructure.entitys.Video;
+import com.educabit.educabit.Service.VideoService;
+import com.educabit.educabit.Model.Video;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,18 +20,18 @@ public class VideoController {
     }
 
     @GetMapping
-    public ResponseEntity<Video> buscarVideoPorTitulo_video(@RequestParam String titulo_video){
-        return ResponseEntity.ok(videoService.buscarVideoPorTitulo_video(titulo_video));
+    public ResponseEntity<Video> buscarVideoPorTituloVideo(@RequestParam String tituloVideo){
+        return ResponseEntity.ok(videoService.buscarVideoPorTitulo_video(tituloVideo));
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> deletarVideoPorTitulo_video(@RequestParam String titulo_video){
-        videoService.deletarVideoPorTitulo_video(titulo_video);
+    public ResponseEntity<Void> deletarVideoPorTituloVideo(@RequestParam String tituloVideo){
+        videoService.deletarVideoPorTitulo_video(tituloVideo);
         return ResponseEntity.ok().build();
     }
 
     @PutMapping
-    public ResponseEntity<Void> atualizarVideoPorTitulo_video(@RequestBody Video video){
+    public ResponseEntity<Void> atualizarVideoPorTituloVideo(@RequestBody Video video){
         videoService.atualizarVideoPorTitulo(video);
         return ResponseEntity.ok().build();
     }
