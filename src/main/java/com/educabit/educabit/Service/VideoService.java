@@ -17,13 +17,13 @@ public class VideoService {
         videoRepository.saveAndFlush(video);
     }
 
-    public Video buscarVideoPorTitulo_video(String titulo_video) {
-        return videoRepository.findByTituloVideo(titulo_video)
+    public Video buscarVideoPorTitulo_video(String tituloVideo) {
+        return videoRepository.findByTituloVideo(tituloVideo)
                 .orElseThrow(() -> new RuntimeException("Vídeo não encontrado"));
     }
 
-    public void deletarVideoPorTitulo_video(String titulo_video) {
-        videoRepository.deleteByTituloVideo(titulo_video);
+    public void deletarVideoPorTitulo_video(String tituloVideo) {
+        videoRepository.deleteByTituloVideo(tituloVideo);
     }
 
     public void atualizarVideoPorTitulo(Video video) {
