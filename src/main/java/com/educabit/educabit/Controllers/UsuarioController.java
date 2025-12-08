@@ -27,34 +27,37 @@ public class UsuarioController {
 
     }
 
-    @GetMapping("/{Id}")
+    @GetMapping("/{id}")
     public ResponseEntity BuscarPeloId(@PathVariable(value="id") Integer Id){
         Optional usuario = usuarioRepository.findById(Id);
         if(usuario.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario não encontrado");
+            return ResponseEntity.status(HttpStatus.FOUND).body(usuario.get());
+
         }
-        return ResponseEntity.status(HttpStatus.FOUND).body(usuario.get());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario não encontrado");
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity RemoverUsuario(@PathVariable(value="id") Integer Id){
         Optional<Usuario> usuario = usuarioRepository.findById(Id);
         if(usuario.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario não encontrado");
+            usuarioRepository.delete(usuario.get());
+            return ResponseEntity.status(HttpStatus.OK).body("Usuario removido com sucesso");
+
         }
-        usuarioRepository.delete(usuario.get());
-        return ResponseEntity.status(HttpStatus.OK).body("Usuario removido com sucesso");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario não encontrado");
     }
 
     @PutMapping("/{id}")
     public ResponseEntity AtualizarUsuario(@PathVariable(value="id") Integer Id, @RequestBody UsuarioDto dto){
         Optional<Usuario> usuario = usuarioRepository.findById(Id);
         if(usuario.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario não encontrado");
+            var usuarioModel = usuario.get();
+            BeanUtils.copyProperties(dto,usuarioModel);
+            return ResponseEntity.status(HttpStatus.OK).body(usuarioRepository.save(usuarioModel));
+
         }
-        var usuarioModel = usuario.get();
-        BeanUtils.copyProperties(dto,usuarioModel);
-        return ResponseEntity.status(HttpStatus.OK).body(usuarioRepository.save(usuarioModel));
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario não encontrado");
     }
 
 
