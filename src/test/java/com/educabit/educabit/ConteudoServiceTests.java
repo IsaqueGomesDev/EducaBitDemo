@@ -1,12 +1,12 @@
 package com.educabit.educabit;
 
-import com.educabit.educabit.Enums.ContentStatus;
-import com.educabit.educabit.Enums.Role;
-import com.educabit.educabit.Enums.UserStatus;
-import com.educabit.educabit.Model.Conteudo;
-import com.educabit.educabit.Model.Usuario;
-import com.educabit.educabit.Repositores.ConteudoRepository;
-import com.educabit.educabit.Services.ConteudoService;
+import com.educabit.educabit.enums.ContentStatus;
+import com.educabit.educabit.enums.Role;
+import com.educabit.educabit.enums.UserStatus;
+import com.educabit.educabit.model.Conteudo;
+import com.educabit.educabit.model.Usuario;
+import com.educabit.educabit.repositories.ConteudoRepository;
+import com.educabit.educabit.services.ConteudoService;
 import com.educabit.educabit.dtos.ContentDTO;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -29,7 +29,7 @@ class ConteudoServiceTests {
     private ConteudoRepository conteudoRepository;
 
     @Autowired
-    private com.educabit.educabit.Repositores.UsuarioRepository usuarioRepository;
+    private com.educabit.educabit.repositories.UsuarioRepository usuarioRepository;
 
     private Usuario criarUsuarioTeste(String username, Role role) {
         Usuario user = new Usuario();
@@ -43,25 +43,25 @@ class ConteudoServiceTests {
     }
 
     @Test
-    @DisplayName("Conteúdo criado por ADMIN deve ser automaticamente APPROVED")
+    @DisplayName("ConteÃƒÂºdo criado por ADMIN deve ser automaticamente APPROVED")
     void conteudoCriadoPorAdminDeveSerApproved() {
         Usuario admin = criarUsuarioTeste("admin_test", Role.ADMIN);
-        ContentDTO dto = new ContentDTO("Título Admin", "Corpo do conteúdo", true);
+        ContentDTO dto = new ContentDTO("TÃƒÂ­tulo Admin", "Corpo do conteÃƒÂºdo", true);
 
-        Conteudo conteudo = conteudoService.CriarConteudo(dto, admin);
+        Conteudo conteudo = conteudoService.criarConteudo(dto, admin);
 
         assertNotNull(conteudo.getId());
         assertEquals(ContentStatus.APPROVED, conteudo.getStatus());
-        assertEquals("Título Admin", conteudo.getTitle());
+        assertEquals("TÃƒÂ­tulo Admin", conteudo.getTitle());
     }
 
     @Test
-    @DisplayName("Conteúdo criado por USER deve ficar PENDING")
+    @DisplayName("ConteÃƒÂºdo criado por USER deve ficar PENDING")
     void conteudoCriadoPorUserDeveSerPending() {
         Usuario user = criarUsuarioTeste("user_test", Role.USER);
-        ContentDTO dto = new ContentDTO("Título User", "Corpo do conteúdo", false);
+        ContentDTO dto = new ContentDTO("TÃƒÂ­tulo User", "Corpo do conteÃƒÂºdo", false);
 
-        Conteudo conteudo = conteudoService.CriarConteudo(dto, user);
+        Conteudo conteudo = conteudoService.criarConteudo(dto, user);
 
         assertNotNull(conteudo.getId());
         assertEquals(ContentStatus.PENDING, conteudo.getStatus());
@@ -70,21 +70,23 @@ class ConteudoServiceTests {
     @Test
     @DisplayName("ContentDTO.isPublic() deve retornar valor correto (fix bug #1)")
     void contentDtoIsPublicDeveRetornarValorCorreto() {
-        ContentDTO dtoPublico = new ContentDTO("Título", "Corpo", true);
-        ContentDTO dtoPrivado = new ContentDTO("Título", "Corpo", false);
+        ContentDTO dtoPublico = new ContentDTO("TÃƒÂ­tulo", "Corpo", true);
+        ContentDTO dtoPrivado = new ContentDTO("TÃƒÂ­tulo", "Corpo", false);
 
         assertTrue(dtoPublico.isPublic(), "isPublic deveria retornar true quando definido como true");
         assertFalse(dtoPrivado.isPublic(), "isPublic deveria retornar false quando definido como false");
     }
 
     @Test
-    @DisplayName("Conteúdo público deve ser visível por todos (fix bug #1)")
+    @DisplayName("ConteÃƒÂºdo pÃƒÂºblico deve ser visÃƒÂ­vel por todos (fix bug #1)")
     void conteudoPublicoDeveSerVisivel() {
         Usuario creator = criarUsuarioTeste("creator_vis", Role.ADMIN);
-        ContentDTO dtoPublico = new ContentDTO("Conteúdo Público", "Visível para todos", true);
+        ContentDTO dtoPublico = new ContentDTO("ConteÃƒÂºdo PÃƒÂºblico", "VisÃƒÂ­vel para todos", true);
 
-        Conteudo conteudo = conteudoService.CriarConteudo(dtoPublico, creator);
+        Conteudo conteudo = conteudoService.criarConteudo(dtoPublico, creator);
 
-        assertTrue(conteudo.isPublic(), "Conteúdo deveria ser público");
+        assertTrue(conteudo.isPublic(), "ConteÃƒÂºdo deveria ser pÃƒÂºblico");
     }
 }
+
+

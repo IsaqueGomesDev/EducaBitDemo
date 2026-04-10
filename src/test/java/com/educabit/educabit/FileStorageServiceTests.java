@@ -1,6 +1,6 @@
 package com.educabit.educabit;
 
-import com.educabit.educabit.Services.FileStorageService;
+import com.educabit.educabit.services.FileStorageService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -26,7 +26,7 @@ class FileStorageServiceTests {
     void salvarArquivoPdf() throws IOException {
         MockMultipartFile file = new MockMultipartFile(
                 "arquivo", "documento.pdf", "application/pdf",
-                "conteúdo do PDF".getBytes());
+                "conteÃºdo do PDF".getBytes());
 
         String resultado = fileStorageService.salvarArquivo(file);
 
@@ -48,7 +48,7 @@ class FileStorageServiceTests {
     }
 
     @Test
-    @DisplayName("Deve rejeitar extensão não permitida (.exe)")
+    @DisplayName("Deve rejeitar extensÃ£o nÃ£o permitida (.exe)")
     void rejeitarExtensaoNaoPermitida() {
         MockMultipartFile file = new MockMultipartFile(
                 "arquivo", "malware.exe", "application/octet-stream",
@@ -57,11 +57,11 @@ class FileStorageServiceTests {
         IOException exception = assertThrows(IOException.class,
                 () -> fileStorageService.salvarArquivo(file));
 
-        assertTrue(exception.getMessage().contains("Tipo de arquivo não permitido"));
+        assertTrue(exception.getMessage().contains("Tipo de arquivo nÃ£o permitido"));
     }
 
     @Test
-    @DisplayName("Deve rejeitar extensão .bat")
+    @DisplayName("Deve rejeitar extensÃ£o .bat")
     void rejeitarExtensaoBat() {
         MockMultipartFile file = new MockMultipartFile(
                 "arquivo", "script.bat", "application/octet-stream",
@@ -107,29 +107,29 @@ class FileStorageServiceTests {
     }
 
     @Test
-    @DisplayName("Deve lançar exceção ao carregar arquivo inexistente")
+    @DisplayName("Deve lanÃ§ar exceÃ§Ã£o ao carregar arquivo inexistente")
     void carregarArquivoInexistente() {
         assertThrows(IOException.class,
                 () -> fileStorageService.carregarArquivo("arquivo_que_nao_existe.pdf"));
     }
 
     @Test
-    @DisplayName("Deve deletar arquivo existente sem exceção")
+    @DisplayName("Deve deletar arquivo existente sem exceÃ§Ã£o")
     void deletarArquivoExistente() throws IOException {
         MockMultipartFile file = new MockMultipartFile(
                 "arquivo", "testdelete.txt", "text/plain",
-                "conteúdo para deletar".getBytes());
+                "conteÃºdo para deletar".getBytes());
 
         String nomeArquivo = fileStorageService.salvarArquivo(file);
         assertNotNull(nomeArquivo);
 
-        // Não deve lançar exceção
+        // NÃ£o deve lanÃ§ar exceÃ§Ã£o
         String fileName = Path.of(nomeArquivo).getFileName().toString();
         assertDoesNotThrow(() -> fileStorageService.deletarArquivo(fileName));
     }
 
     @Test
-    @DisplayName("Deve rejeitar nome de arquivo inválido (null)")
+    @DisplayName("Deve rejeitar nome de arquivo invÃ¡lido (null)")
     void rejeitarNomeArquivoNulo() {
         assertThrows(IllegalArgumentException.class,
                 () -> fileStorageService.carregarArquivo(null));
@@ -138,8 +138,9 @@ class FileStorageServiceTests {
     @Test
     @DisplayName("Deletar arquivo nulo deve ser silencioso")
     void deletarArquivoNulo() throws IOException {
-        // Não deve lançar exceção
+        // NÃ£o deve lanÃ§ar exceÃ§Ã£o
         assertDoesNotThrow(() -> fileStorageService.deletarArquivo(null));
         assertDoesNotThrow(() -> fileStorageService.deletarArquivo(""));
     }
 }
+

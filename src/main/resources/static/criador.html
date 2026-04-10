@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="img/EducaBit_logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <title>Seja um Criador - EducaBit</title>
+</head>
+
+<body style="background-color: #f5f5f5;">
+    <div class="layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-box">
+                <img src="img/EducaBit_logo.png" alt="logo">
+            </div>
+            <nav class="menu">
+                <a href="inicio_educabit.html" class="menu-item">Home</a>
+                <a href="jogos.html" class="menu-item">Jogos</a>
+                <a href="aulas.html" class="menu-item">Aulas</a>
+                <a href="forum.html" class="menu-item">Fórum</a>
+                <a href="sobre.html" class="menu-item">Sobre</a>
+                <a href="criador.html"><button type="button" class="btn btn-warning"
+                        style="color: white;font-weight: bold;">Seja criador</button></a>
+            </nav>
+            <a class="logout" href="/logout"><i class="bi bi-box-arrow-left"></i> Logout Account</a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <header class="header">
+                <h4>Solicitação de Criador</h4>
+                <a href="user.html"><i class="bi bi-person-circle user-icon"></i></a>
+            </header>
+
+            <div class="container-fluid mt-4">
+                <div class="card shadow p-4" style="max-width: 800px; margin: auto;">
+
+                    <div id="loading" class="text-center">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Carregando...</span>
+                        </div>
+                    </div>
+
+                    <!-- Status: Already Creator -->
+                    <div id="statusActive" class="text-center d-none">
+                        <div class="alert alert-success">
+                            <i class="bi bi-check-circle-fill fs-3"></i><br>
+                            <h4 class="mt-2">Você já é um Criador!</h4>
+                            <p>Você já possui permissão para criar Jogos e Aulas.</p>
+                        </div>
+                        <a href="criar_conteudo.html" class="btn btn-warning text-white d-none">Criar Novo Conteúdo</a>
+                    </div>
+
+                    <!-- Status: In Review -->
+                    <div id="statusReview" class="text-center d-none">
+                        <div class="alert alert-warning">
+                            <i class="bi bi-hourglass-split fs-3"></i><br>
+                            <h4 class="mt-2">Em Análise</h4>
+                            <p>Sua solicitação foi enviada e está sendo analisada pelos administradores.</p>
+                        </div>
+                    </div>
+
+                    <!-- Status: Blocked/Rejected -->
+                    <div id="statusBlocked" class="text-center d-none">
+                        <div class="alert alert-danger">
+                            <i class="bi bi-x-circle-fill fs-3"></i><br>
+                            <h4 class="mt-2">Solicitação Negada</h4>
+                            <p>Infelizmente sua solicitação para se tornar criador foi negada.</p>
+                            <button id="btnRetry" class="btn btn-outline-danger mt-2">Tentar Novamente</button>
+                        </div>
+                    </div>
+
+                    <!-- Request Form -->
+                    <div id="requestForm" class="d-none">
+                        <p class="text-muted mb-4">Preencha os dados abaixo para submeter sua solicitação. Após
+                            aprovação, você poderá criar conteúdos na plataforma.</p>
+                        <form id="formCriador" enctype="multipart/form-data">
+
+                            <div class="mb-3">
+                                <label for="documentType" class="form-label">Tipo de Documento *</label>
+                                <select class="form-select" name="documentType" id="documentType" required>
+                                    <option value="" selected disabled>Selecione...</option>
+                                    <option value="RG">RG</option>
+                                    <option value="CNH">CNH</option>
+                                    <option value="CTPS">Carteira de Trabalho</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="documentFile" class="form-label">Foto do Documento (JPG, PNG) *</label>
+                                <input type="file" class="form-control" name="documentFile" id="documentFile" required
+                                    accept=".jpg,.jpeg,.png">
+                                <div class="form-text">Anexe uma foto legível do documento selecionado.</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Telefone / WhatsApp *</label>
+                                <input type="text" class="form-control" name="phone" id="phone" required
+                                    placeholder="(XX) XXXXX-XXXX">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="lattesUrl" class="form-label">Link do Currículo Lattes</label>
+                                <input type="url" class="form-control" name="lattesUrl" id="lattesUrl"
+                                    placeholder="http://lattes.cnpq.br/...">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="linkedinUrl" class="form-label">Link do LinkedIn *</label>
+                                <input type="url" class="form-control" name="linkedinUrl" id="linkedinUrl" required
+                                    placeholder="https://www.linkedin.com/in/seu-perfil">
+                                <div class="form-text">Insira o link do seu perfil profissional.</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="bio" class="form-label">Biografia Resumida</label>
+                                <textarea class="form-control" name="bio" id="bio" rows="3"
+                                    placeholder="Conte um pouco sobre sua experiência..."></textarea>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg"
+                                    style="background-color: #006dac; border: none;">Enviar Solicitação</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const loading = document.getElementById('loading');
+            const statusActive = document.getElementById('statusActive');
+            const statusReview = document.getElementById('statusReview');
+            const statusBlocked = document.getElementById('statusBlocked');
+            const requestForm = document.getElementById('requestForm');
+
+            const phoneInput = document.getElementById('phone');
+            const bioInput = document.getElementById('bio');
+
+            try {
+                // 1. Get current user status
+                const res = await fetch('/educabit/usuario/me');
+                if (!res.ok) {
+                    // alert('Você precisa estar logado.');
+                    // window.location.href = 'login_user.html';
+                    return;
+                }
+                const user = await res.json();
+
+                loading.classList.add('d-none');
+
+                // Pre-fill known data
+                if (user.documentType) document.getElementById('documentType').value = user.documentType;
+                if (user.phone) phoneInput.value = user.phone;
+                if (user.bio) bioInput.value = user.bio;
+
+                // 2. Determine UI State
+                if (user.role === 'CREATOR' || user.role === 'ADMIN') {
+                    statusActive.classList.remove('d-none');
+                } else if (user.status === 'IN_REVIEW') {
+                    statusReview.classList.remove('d-none');
+                } else if (user.status === 'BLOCKED') {
+                    statusBlocked.classList.remove('d-none');
+                } else {
+                    // PENDING or USER -> Show Form
+                    requestForm.classList.remove('d-none');
+                }
+
+            } catch (e) {
+                console.error(e);
+                alert('Erro ao carregar dados do usuário.');
+            }
+
+            // Handle Retry Button
+            const btnRetry = document.getElementById('btnRetry');
+            if (btnRetry) {
+                btnRetry.addEventListener('click', () => {
+                    statusBlocked.classList.add('d-none');
+                    requestForm.classList.remove('d-none');
+                });
+            }
+
+            // 3. Handle Form Submission with FormData
+            document.getElementById('formCriador').addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const form = document.getElementById('formCriador');
+                const formData = new FormData(form);
+
+                try {
+                    const res = await fetch('/educabit/criador/solicitar', {
+                        method: 'POST',
+                        body: formData // No Content-Type header needed, browser sets boundary
+                    });
+
+                    if (res.ok) {
+                        alert('Solicitação enviada com sucesso!');
+                        location.reload();
+                    } else {
+                        const txt = await res.text();
+                        alert('Erro: ' + txt);
+                    }
+                } catch (err) {
+                    alert('Erro na comunicação com o servidor.');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

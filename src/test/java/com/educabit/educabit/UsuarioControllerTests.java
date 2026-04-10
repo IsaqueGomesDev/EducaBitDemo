@@ -1,9 +1,9 @@
 package com.educabit.educabit;
 
-import com.educabit.educabit.Enums.Role;
-import com.educabit.educabit.Enums.UserStatus;
-import com.educabit.educabit.Model.Usuario;
-import com.educabit.educabit.Repositores.UsuarioRepository;
+import com.educabit.educabit.enums.Role;
+import com.educabit.educabit.enums.UserStatus;
+import com.educabit.educabit.model.Usuario;
+import com.educabit.educabit.repositories.UsuarioRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ class UsuarioControllerTests {
     private UsuarioRepository usuarioRepository;
 
     @Test
-    @DisplayName("POST /educabit/usuario deve criar usuário com type default 'USER' (fix #3)")
+    @DisplayName("POST /educabit/usuario deve criar usuÃ¡rio com type default 'USER' (fix #3)")
     void criarUsuarioComTypeDefault() throws Exception {
         // Enviar sem campo 'type'
         String json = """
@@ -54,7 +54,7 @@ class UsuarioControllerTests {
     }
 
     @Test
-    @DisplayName("POST /educabit/usuario deve forçar Role.USER mesmo se type=CREATOR")
+    @DisplayName("POST /educabit/usuario deve forÃ§ar Role.USER mesmo se type=CREATOR")
     void criarUsuarioCreatorDeveFocarRoleUser() throws Exception {
         String json = """
                 {
@@ -165,3 +165,5 @@ class UsuarioControllerTests {
                 .andExpect(jsonPath("$").isArray());
     }
 }
+
+

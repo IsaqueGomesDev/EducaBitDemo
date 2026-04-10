@@ -1,9 +1,9 @@
 package com.educabit.educabit;
 
-import com.educabit.educabit.Enums.Role;
-import com.educabit.educabit.Enums.UserStatus;
-import com.educabit.educabit.Model.Usuario;
-import com.educabit.educabit.Repositores.UsuarioRepository;
+import com.educabit.educabit.enums.Role;
+import com.educabit.educabit.enums.UserStatus;
+import com.educabit.educabit.model.Usuario;
+import com.educabit.educabit.repositories.UsuarioRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +45,7 @@ class AdminControllerTests {
 
     @Test
     @WithMockUser(roles = "ADMIN")
-    @DisplayName("GET /api/admin/criadores/pendentes deve listar solicitações EM ANÁLISE")
+    @DisplayName("GET /api/admin/criadores/pendentes deve listar solicitaÃƒÂ§ÃƒÂµes EM ANÃƒÂLISE")
     void listarSolicitacoesPendentes() throws Exception {
         criarUsuarioEmAnalise();
 
@@ -58,7 +58,7 @@ class AdminControllerTests {
 
     @Test
     @WithMockUser(roles = "ADMIN")
-    @DisplayName("GET /api/admin/criadores/pendentes NÃO deve listar usuários com status PENDING")
+    @DisplayName("GET /api/admin/criadores/pendentes NÃƒÆ’O deve listar usuÃƒÂ¡rios com status PENDING")
     void naoDeveListarUsuariosPending() throws Exception {
         Usuario userPending = new Usuario();
         userPending.setUsername("pending_user");
@@ -93,10 +93,10 @@ class AdminControllerTests {
                 .content(json))
                 .andExpect(status().isOk());
 
-        // Verificar que o usuário foi promovido
+        // Verificar que o usuÃƒÂ¡rio foi promovido
         Usuario updated = usuarioRepository.findById(candidato.getId()).orElseThrow();
         assertEquals(UserStatus.ACTIVE, updated.getStatus());
-        assertEquals(Role.CREATOR, updated.getRole(), "Role deveria ser CREATOR após aprovação");
+        assertEquals(Role.CREATOR, updated.getRole(), "Role deveria ser CREATOR apÃƒÂ³s aprovaÃƒÂ§ÃƒÂ£o");
     }
 
     @Test
@@ -109,7 +109,7 @@ class AdminControllerTests {
                 {
                     "userId": %d,
                     "approved": false,
-                    "reason": "Documentos inválidos"
+                    "reason": "Documentos invÃƒÂ¡lidos"
                 }
                 """.formatted(candidato.getId());
 
@@ -120,7 +120,7 @@ class AdminControllerTests {
 
         Usuario updated = usuarioRepository.findById(candidato.getId()).orElseThrow();
         assertEquals(UserStatus.BLOCKED, updated.getStatus());
-        assertEquals(Role.USER, updated.getRole(), "Role deveria permanecer USER após rejeição");
+        assertEquals(Role.USER, updated.getRole(), "Role deveria permanecer USER apÃƒÂ³s rejeiÃƒÂ§ÃƒÂ£o");
     }
 
     @Test
@@ -132,9 +132,11 @@ class AdminControllerTests {
     }
 
     @Test
-    @DisplayName("GET /api/admin/ sem autenticação deve redirecionar para login")
+    @DisplayName("GET /api/admin/ sem autenticaÃƒÂ§ÃƒÂ£o deve redirecionar para login")
     void acessoSemAuthRedireciona() throws Exception {
         mockMvc.perform(get("/api/admin/criadores/pendentes"))
                 .andExpect(status().is3xxRedirection());
     }
 }
+
+

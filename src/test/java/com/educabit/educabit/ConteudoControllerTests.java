@@ -1,12 +1,12 @@
 package com.educabit.educabit;
 
-import com.educabit.educabit.Enums.Role;
-import com.educabit.educabit.Enums.UserStatus;
-import com.educabit.educabit.Model.Conteudo;
-import com.educabit.educabit.Model.Usuario;
-import com.educabit.educabit.Repositores.ConteudoRepository;
-import com.educabit.educabit.Repositores.UsuarioRepository;
-import com.educabit.educabit.Enums.ContentStatus;
+import com.educabit.educabit.enums.Role;
+import com.educabit.educabit.enums.UserStatus;
+import com.educabit.educabit.model.Conteudo;
+import com.educabit.educabit.model.Usuario;
+import com.educabit.educabit.repositories.ConteudoRepository;
+import com.educabit.educabit.repositories.UsuarioRepository;
+import com.educabit.educabit.enums.ContentStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -52,12 +52,12 @@ class ConteudoControllerTests {
     }
 
     @Test
-    @DisplayName("GET /educabit/conteudo/publico deve retornar conteúdos públicos sem autenticação")
+    @DisplayName("GET /educabit/conteudo/publico deve retornar conteÃºdos pÃºblicos sem autenticaÃ§Ã£o")
     void listarConteudoPublicoSemAuth() throws Exception {
-        // Criar conteúdo público e aprovado
+        // Criar conteÃºdo pÃºblico e aprovado
         Conteudo conteudo = new Conteudo();
-        conteudo.setTitle("Conteúdo Público");
-        conteudo.setBody("Este conteúdo é público");
+        conteudo.setTitle("ConteÃºdo PÃºblico");
+        conteudo.setBody("Este conteÃºdo Ã© pÃºblico");
         conteudo.setPublic(true);
         conteudo.setStatus(ContentStatus.APPROVED);
         conteudo.setAuthor(autorTeste);
@@ -66,15 +66,15 @@ class ConteudoControllerTests {
         mockMvc.perform(get("/educabit/conteudo/publico"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.content").isArray())
-                .andExpect(jsonPath("$.content[0].title").value("Conteúdo Público"));
+                .andExpect(jsonPath("$.content[0].title").value("ConteÃºdo PÃºblico"));
     }
 
     @Test
-    @DisplayName("GET /educabit/conteudo/publico NÃO deve retornar conteúdos privados")
+    @DisplayName("GET /educabit/conteudo/publico NÃƒO deve retornar conteÃºdos privados")
     void publicoNaoDeveRetornarPrivado() throws Exception {
         Conteudo conteudoPrivado = new Conteudo();
-        conteudoPrivado.setTitle("Conteúdo Privado");
-        conteudoPrivado.setBody("Este conteúdo é privado");
+        conteudoPrivado.setTitle("ConteÃºdo Privado");
+        conteudoPrivado.setBody("Este conteÃºdo Ã© privado");
         conteudoPrivado.setPublic(false);
         conteudoPrivado.setStatus(ContentStatus.APPROVED);
         conteudoPrivado.setAuthor(autorTeste);
@@ -86,11 +86,11 @@ class ConteudoControllerTests {
     }
 
     @Test
-    @DisplayName("GET /educabit/conteudo/publico NÃO deve retornar conteúdos PENDING")
+    @DisplayName("GET /educabit/conteudo/publico NÃƒO deve retornar conteÃºdos PENDING")
     void publicoNaoDeveRetornarPending() throws Exception {
         Conteudo conteudoPending = new Conteudo();
-        conteudoPending.setTitle("Conteúdo Pendente");
-        conteudoPending.setBody("Este conteúdo espera aprovação");
+        conteudoPending.setTitle("ConteÃºdo Pendente");
+        conteudoPending.setBody("Este conteÃºdo espera aprovaÃ§Ã£o");
         conteudoPending.setPublic(true);
         conteudoPending.setStatus(ContentStatus.PENDING);
         conteudoPending.setAuthor(autorTeste);
@@ -103,12 +103,12 @@ class ConteudoControllerTests {
 
     @Test
     @WithMockUser(username = "user_sub", roles = "USER")
-    @DisplayName("GET /educabit/conteudo deve retornar conteúdos aprovados para usuário logado")
+    @DisplayName("GET /educabit/conteudo deve retornar conteÃºdos aprovados para usuÃ¡rio logado")
     void listarConteudoParaSubscriber() throws Exception {
-        // Conteúdo aprovado (privado mas aprovado, deve aparecer para subscriber)
+        // ConteÃºdo aprovado (privado mas aprovado, deve aparecer para subscriber)
         Conteudo conteudo = new Conteudo();
-        conteudo.setTitle("Conteúdo Subscriber");
-        conteudo.setBody("Conteúdo para assinantes");
+        conteudo.setTitle("ConteÃºdo Subscriber");
+        conteudo.setBody("ConteÃºdo para assinantes");
         conteudo.setPublic(false);
         conteudo.setStatus(ContentStatus.APPROVED);
         conteudo.setAuthor(autorTeste);
@@ -117,11 +117,11 @@ class ConteudoControllerTests {
         mockMvc.perform(get("/educabit/conteudo"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.content").isArray())
-                .andExpect(jsonPath("$.content[0].title").value("Conteúdo Subscriber"));
+                .andExpect(jsonPath("$.content[0].title").value("ConteÃºdo Subscriber"));
     }
 
     @Test
-    @DisplayName("GET /educabit/conteudo sem autenticação deve redirecionar para login")
+    @DisplayName("GET /educabit/conteudo sem autenticaÃ§Ã£o deve redirecionar para login")
     void conteudoSemAuthDeveRedirecionar() throws Exception {
         mockMvc.perform(get("/educabit/conteudo"))
                 .andExpect(status().is3xxRedirection());
@@ -129,12 +129,12 @@ class ConteudoControllerTests {
 
     @Test
     @WithMockUser(username = "autor_conteudo", roles = "CREATOR")
-    @DisplayName("POST /educabit/conteudo deve criar conteúdo como CREATOR")
+    @DisplayName("POST /educabit/conteudo deve criar conteÃºdo como CREATOR")
     void criarConteudoComoCriador() throws Exception {
         String json = """
                 {
-                    "title": "Novo Conteúdo Criador",
-                    "body": "Corpo do conteúdo criado",
+                    "title": "Novo ConteÃºdo Criador",
+                    "body": "Corpo do conteÃºdo criado",
                     "isPublic": true
                 }
                 """;
@@ -143,7 +143,7 @@ class ConteudoControllerTests {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.title").value("Novo Conteúdo Criador"))
+                .andExpect(jsonPath("$.title").value("Novo ConteÃºdo Criador"))
                 .andExpect(jsonPath("$.status").value("PENDING"));
     }
 
@@ -165,3 +165,5 @@ class ConteudoControllerTests {
                 .andExpect(status().isForbidden());
     }
 }
+
+

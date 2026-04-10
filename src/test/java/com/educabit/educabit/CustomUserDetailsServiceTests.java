@@ -1,10 +1,10 @@
 package com.educabit.educabit;
 
-import com.educabit.educabit.Enums.Role;
-import com.educabit.educabit.Enums.UserStatus;
-import com.educabit.educabit.Model.Usuario;
-import com.educabit.educabit.Repositores.UsuarioRepository;
-import com.educabit.educabit.Services.CustomUserDetailsService;
+import com.educabit.educabit.enums.Role;
+import com.educabit.educabit.enums.UserStatus;
+import com.educabit.educabit.model.Usuario;
+import com.educabit.educabit.repositories.UsuarioRepository;
+import com.educabit.educabit.services.CustomUserDetailsService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -48,7 +48,7 @@ class CustomUserDetailsServiceTests {
         user.setStatus(UserStatus.ACTIVE);
         usuarioRepository.save(user);
 
-        // Usuário sem role definida (legacy)
+        // UsuÃ¡rio sem role definida (legacy)
         Usuario legacy = new Usuario();
         legacy.setUsername("legacy_user");
         legacy.setEmail("legacy_uds@test.com");
@@ -60,7 +60,7 @@ class CustomUserDetailsServiceTests {
     }
 
     @Test
-    @DisplayName("Deve carregar usuário ADMIN com role correta")
+    @DisplayName("Deve carregar usuÃ¡rio ADMIN com role correta")
     void carregarAdmin() {
         UserDetails userDetails = customUserDetailsService.loadUserByUsername("admin_test");
 
@@ -72,7 +72,7 @@ class CustomUserDetailsServiceTests {
     }
 
     @Test
-    @DisplayName("Deve carregar usuário USER com role correta")
+    @DisplayName("Deve carregar usuÃ¡rio USER com role correta")
     void carregarUser() {
         UserDetails userDetails = customUserDetailsService.loadUserByUsername("user_test");
 
@@ -82,7 +82,7 @@ class CustomUserDetailsServiceTests {
     }
 
     @Test
-    @DisplayName("Deve usar fallback para type quando role é null (compatibilidade legada)")
+    @DisplayName("Deve usar fallback para type quando role Ã© null (compatibilidade legada)")
     void fallbackParaTypeLegado() {
         UserDetails userDetails = customUserDetailsService.loadUserByUsername("legacy_user");
 
@@ -93,9 +93,11 @@ class CustomUserDetailsServiceTests {
     }
 
     @Test
-    @DisplayName("Deve lançar exceção para usuário inexistente")
+    @DisplayName("Deve lanÃ§ar exceÃ§Ã£o para usuÃ¡rio inexistente")
     void usuarioInexistente() {
         assertThrows(UsernameNotFoundException.class,
                 () -> customUserDetailsService.loadUserByUsername("nao_existe"));
     }
 }
+
+

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="img/EducaBit_logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <title>EDUCABIT</title>
+</head>
+
+<body style="background-color: #f5f5f5;">
+  <div class="contem_user">
+    <div class="cabecalho">
+      <header class="header_user">
+        <h4>Informações do usuário</h4>
+        <a href="inicio_educabit.html"><i class="bi bi-x-lg"></i></a>
+      </header>
+    </div>
+    <div class="conteudo_user">
+      <div class="info_user" style="margin-top: 10%; flex-direction: column; width: 100%;">
+
+
+
+        <div class="user-row"
+          style="display: flex; justify-content: space-between; border-bottom: 1px solid #ccc; padding: 5px 0; width: 80%; margin: 0 auto;">
+          <h6 style="font-weight: bold; margin: 0;">Username:</h6>
+          <p id="userNome" style="margin: 0;">Carregando...</p>
+        </div>
+
+        <div class="user-row"
+          style="display: flex; justify-content: space-between; border-bottom: 1px solid #ccc; padding: 5px 0; width: 80%; margin: 0 auto;">
+          <h6 style="font-weight: bold; margin: 0;">Plano:</h6>
+          <p id="userPlano" style="margin: 0;">Carregando...</p>
+        </div>
+
+        <div class="user-row"
+          style="display: flex; justify-content: space-between; border-bottom: 1px solid #ccc; padding: 5px 0; width: 80%; margin: 0 auto;">
+          <h6 style="font-weight: bold; margin: 0;">Email:</h6>
+          <p id="userEmail" style="margin: 0;">Carregando...</p>
+        </div>
+
+        <div class="user-row"
+          style="display: flex; justify-content: space-between; border-bottom: 1px solid #ccc; padding: 5px 0; width: 80%; margin: 0 auto;">
+          <h6 style="font-weight: bold; margin: 0;">CPF:</h6>
+          <p id="userCpf" style="margin: 0;">Carregando...</p>
+        </div>
+
+        <div class="user-row"
+          style="display: flex; justify-content: space-between; border-bottom: 1px solid #ccc; padding: 5px 0; width: 80%; margin: 0 auto; align-items: center;">
+          <h6 style="font-weight: bold; margin: 0;">Alterar Senha:</h6>
+          <div class="input-group" style="width: auto; flex-wrap: nowrap; margin-bottom: 0;">
+            <input type="password" id="novaSenha" class="form-control" placeholder="Nova Senha"
+              style="font-size: 14px; padding: 5px;">
+            <button class="btn btn-primary" id="btnAlterarSenha" type="button"
+              style="font-size: 14px; padding: 5px 10px;">Salvar</button>
+          </div>
+        </div>
+
+        <div class="user-row"
+          style="display: flex; justify-content: space-between; border-bottom: 1px solid #ccc; padding: 5px 0; width: 80%; margin: 0 auto; align-items: center; margin-top: 20px !important;">
+          <h6 style="font-weight: bold; margin: 0; color: #dc3545;">Excluir Conta:</h6>
+          <button class="btn btn-danger" id="btnExcluirConta" type="button"
+            style="font-size: 14px; padding: 5px 10px;">Excluir</button>
+        </div>
+
+      </div>
+      <div class="info_user">
+        <i class="bi bi-person-circle user-icon2"></i>
+        <a href="tela_inicial.html"><button type="button" class="btn btn-warning"
+            style="color: white;font-weight: bold;  margin-left: 50%;"><i class="bi bi-box-arrow-left"></i>
+            Sair</button></a>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Tenta buscar o usuário da sessão do servidor primeiro
+      let usuario = null;
+      try {
+        const response = await fetch('/educabit/usuario/me');
+        if (response.ok) {
+          usuario = await response.json();
+          // Atualiza localStorage para manter compatibilidade com outros scripts se necessário
+          localStorage.setItem('userId', usuario.id);
+          localStorage.setItem('userName', usuario.username);
+        } else if (response.status === 401 || response.status === 403) {
+            // Se não autenticado no servidor, verifica localStorage como fallback (ou redireciona)
+             console.log("Sessão expirada ou inválida.");
+        }
+      } catch (error) {
+        console.error("Erro ao verificar sessão:", error);
+      }
+
+      // Se não conseguiu user do servidor, tenta localStorage (caso de teste sem backend ou reload rápido)
+      // Mas se o servidor retornou 401 explícito, deveríamos forçar login.
+      // Vamos priorizar o objeto 'usuario' obtido do /me.
+
+      if (!usuario) {
+          // Fallback legacy
+          const storedId = localStorage.getItem('userId');
+          if (storedId) {
+             // Tenta buscar pelo ID armazenado
+             try {
+                const res = await fetch(`/educabit/usuario/${storedId}`);
+                if (res.ok) usuario = await res.json();
+             } catch(e) {}
+          }
+      }
+
+      if (!usuario) {
+        alert('Você precisa estar logado para acessar esta página.');
+        window.location.href = 'login_user.html';
+        return;
+      }
+
+      const userId = usuario.id;
+
+          // Format CPF helper
+          const formatCPF = (cpf) => {
+            if (!cpf) return 'Não informado';
+            let clean = cpf.replace(/\D/g, '');
+            // Pad with leading zeros if less than 11 digits
+            clean = clean.padStart(11, '0');
+
+            if (clean.length !== 11) return cpf;
+            return clean.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+          };
+
+          // Populate fields
+          document.getElementById('userNome').textContent = usuario.username || 'Não informado';
+          document.getElementById('userPlano').textContent = usuario.type || 'Não informado';
+          document.getElementById('userEmail').textContent = usuario.email || 'Não informado';
+          document.getElementById('userCpf').textContent = formatCPF(usuario.cpf);
+
+      // Change Password Logic
+      const btnSenha = document.getElementById('btnAlterarSenha');
+      if (btnSenha) {
+        btnSenha.addEventListener('click', async () => {
+          const novaSenha = document.getElementById('novaSenha').value.trim();
+          if (!novaSenha) {
+            alert('Digite a nova senha.');
+            return;
+          }
+          try {
+            const res = await fetch(`/educabit/usuario/${userId}`, {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ password: novaSenha })
+            });
+            if (res.ok) {
+              alert('Senha alterada com sucesso!');
+              document.getElementById('novaSenha').value = '';
+            } else {
+              alert('Erro ao alterar senha.');
+            }
+          } catch (e) {
+            console.error(e);
+            alert('Erro de conexão ao alterar senha.');
+          }
+        });
+      }
+
+      // Logout logic
+      const logoutBtn = document.querySelector('.btn-warning');
+      if (logoutBtn) {
+        logoutBtn.parentElement.removeAttribute('href'); // Remove static link
+        logoutBtn.addEventListener('click', () => {
+          localStorage.removeItem('userId');
+          localStorage.removeItem('userName');
+          window.location.href = 'tela_inicial.html';
+        });
+      }
+
+      // Delete Account Logic
+      const btnExcluir = document.getElementById('btnExcluirConta');
+      if (btnExcluir) {
+        btnExcluir.addEventListener('click', async () => {
+          const confirmacao = confirm('ATENÇÃO: Tem certeza que deseja excluir sua conta? \n\nSe você aceitar, TODOS os seus dados serão excluídos PERMANENTEMENTE.\n\nEsta ação não pode ser desfeita.');
+
+          if (confirmacao) {
+            try {
+              const res = await fetch(`/educabit/usuario/${userId}`, {
+                method: 'DELETE'
+              });
+              if (res.ok) {
+                alert('Conta excluída com sucesso.');
+                localStorage.removeItem('userId');
+                localStorage.removeItem('userName');
+                window.location.href = 'tela_inicial.html';
+              } else {
+                alert('Erro ao excluir conta.');
+              }
+            } catch (e) {
+              console.error(e);
+              alert('Erro de conexão ao excluir conta.');
+            }
+          }
+        });
+      }
+
+    });
+  </script>
+</body>
+
+</html>

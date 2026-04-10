@@ -20,10 +20,10 @@ class SecurityConfigTests {
     @Autowired
     private MockMvc mockMvc;
 
-    // --- Endpoints públicos ---
+    // --- Endpoints pÃºblicos ---
 
     @Test
-    @DisplayName("POST /educabit/usuario deve ser acessível sem autenticação (registro)")
+    @DisplayName("POST /educabit/usuario deve ser acessÃ­vel sem autenticaÃ§Ã£o (registro)")
     void registroPublico() throws Exception {
         String json = """
                 {
@@ -41,21 +41,21 @@ class SecurityConfigTests {
     }
 
     @Test
-    @DisplayName("Páginas HTML estáticas devem ser acessíveis sem autenticação")
+    @DisplayName("PÃ¡ginas HTML estÃ¡ticas devem ser acessÃ­veis sem autenticaÃ§Ã£o")
     void paginasEstaticasPublicas() throws Exception {
         mockMvc.perform(get("/tela_inicial.html"))
                 .andExpect(status().isOk());
     }
 
     @Test
-    @DisplayName("Página de seleção de login deve ser acessível")
+    @DisplayName("PÃ¡gina de seleÃ§Ã£o de login deve ser acessÃ­vel")
     void paginaSelecaoLogin() throws Exception {
         mockMvc.perform(get("/selecao_login.html"))
                 .andExpect(status().isOk());
     }
 
     @Test
-    @DisplayName("Página de cadastro deve ser acessível")
+    @DisplayName("PÃ¡gina de cadastro deve ser acessÃ­vel")
     void paginaCadastro() throws Exception {
         mockMvc.perform(get("/cadastrar_user.html"))
                 .andExpect(status().isOk());
@@ -72,11 +72,11 @@ class SecurityConfigTests {
 
     @Test
     @WithMockUser(roles = "USER")
-    @DisplayName("Endpoint /educabit/usuario/me deve ser acessível com autenticação")
+    @DisplayName("Endpoint /educabit/usuario/me deve ser acessÃ­vel com autenticaÃ§Ã£o")
     void endpointMeComAuth() throws Exception {
-        // O usuário pode não existir no banco, mas o endpoint deve processar (não redirecionar)
+        // O usuÃ¡rio pode nÃ£o existir no banco, mas o endpoint deve processar (nÃ£o redirecionar)
         mockMvc.perform(get("/educabit/usuario/me"))
-                .andExpect(status().isNotFound()); // usuário mock não existe no DB
+                .andExpect(status().isNotFound()); // usuÃ¡rio mock nÃ£o existe no DB
     }
 
     // --- Admin endpoints ---
@@ -91,7 +91,7 @@ class SecurityConfigTests {
 
     @Test
     @WithMockUser(roles = "ADMIN")
-    @DisplayName("/api/admin/** deve ser acessível para ADMIN")
+    @DisplayName("/api/admin/** deve ser acessÃ­vel para ADMIN")
     void adminEndpointPermitidoParaAdmin() throws Exception {
         mockMvc.perform(get("/api/admin/criadores/pendentes"))
                 .andExpect(status().isOk());

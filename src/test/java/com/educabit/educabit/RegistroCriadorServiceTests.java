@@ -1,10 +1,10 @@
 package com.educabit.educabit;
 
-import com.educabit.educabit.Enums.Role;
-import com.educabit.educabit.Enums.UserStatus;
-import com.educabit.educabit.Model.Usuario;
-import com.educabit.educabit.Repositores.UsuarioRepository;
-import com.educabit.educabit.Services.RegistroCriadorService;
+import com.educabit.educabit.enums.Role;
+import com.educabit.educabit.enums.UserStatus;
+import com.educabit.educabit.model.Usuario;
+import com.educabit.educabit.repositories.UsuarioRepository;
+import com.educabit.educabit.services.RegistroCriadorService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,11 +42,11 @@ class RegistroCriadorServiceTests {
         Usuario user = criarUsuarioTeste();
         Integer userId = user.getId();
 
-        registroCriadorService.AprovarCriador(userId, true, null);
+        registroCriadorService.aprovarCriador(userId, true, null);
 
         Usuario updated = usuarioRepository.findById(userId).orElseThrow();
         assertEquals(UserStatus.ACTIVE, updated.getStatus());
-        assertEquals(Role.CREATOR, updated.getRole(), "Role deveria ser CREATOR após aprovação");
+        assertEquals(Role.CREATOR, updated.getRole(), "Role deveria ser CREATOR apÃƒÂ³s aprovaÃƒÂ§ÃƒÂ£o");
     }
 
     @Test
@@ -55,10 +55,12 @@ class RegistroCriadorServiceTests {
         Usuario user = criarUsuarioTeste();
         Integer userId = user.getId();
 
-        registroCriadorService.AprovarCriador(userId, false, "Documentos inválidos");
+        registroCriadorService.aprovarCriador(userId, false, "Documentos invÃƒÂ¡lidos");
 
         Usuario updated = usuarioRepository.findById(userId).orElseThrow();
         assertEquals(UserStatus.BLOCKED, updated.getStatus());
-        assertEquals(Role.USER, updated.getRole(), "Role deveria permanecer USER após rejeição");
+        assertEquals(Role.USER, updated.getRole(), "Role deveria permanecer USER apÃƒÂ³s rejeiÃƒÂ§ÃƒÂ£o");
     }
 }
+
+

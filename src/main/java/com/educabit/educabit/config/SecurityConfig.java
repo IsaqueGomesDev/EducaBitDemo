@@ -23,7 +23,7 @@ public class SecurityConfig {
                 http
                                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                                 .authorizeHttpRequests(auth -> auth
-                                                // 1. Usuário Anônimo (Público) and Static Assets
+                                                // 1. UsuÃ¡rio AnÃ´nimo (PÃºblico) and Static Assets
                                                 .requestMatchers(org.springframework.http.HttpMethod.POST,
                                                                 "/educabit/usuario")
                                                 .permitAll()
@@ -39,32 +39,32 @@ public class SecurityConfig {
                                                                 "/login_adm.html")
                                                 .permitAll()
 
-                                                // Página inicial acessível a todos
+                                                // PÃ¡gina inicial acessÃ­vel a todos
                                                 .requestMatchers("/", "/tela_inicial.html")
                                                 .permitAll()
 
-                                                // Conteúdo público acessível sem login
+                                                // ConteÃºdo pÃºblico acessÃ­vel sem login
                                                 .requestMatchers(org.springframework.http.HttpMethod.GET,
                                                                 "/educabit/conteudo/publico")
                                                 .permitAll()
 
-                                                // 2. Usuário Simples (Logado)
+                                                // 2. UsuÃ¡rio Simples (Logado)
                                                 .requestMatchers(org.springframework.http.HttpMethod.GET,
                                                                 "/educabit/conteudo/**")
                                                 .hasAnyRole("USER", "CREATOR", "ADMIN")
 
-                                                // 3. Usuário Criador (Escrever)
+                                                // 3. UsuÃ¡rio Criador (Escrever)
                                                 .requestMatchers(org.springframework.http.HttpMethod.POST,
                                                                 "/educabit/conteudo/**")
                                                 .hasAnyRole("CREATOR", "ADMIN")
 
-                                                // 4. Administrador (Aprovação e Gestão)
-                                                // 5. Solicitação de Criador
+                                                // 4. Administrador (AprovaÃ§Ã£o e GestÃ£o)
+                                                // 5. SolicitaÃ§Ã£o de Criador
                                                 .requestMatchers("/educabit/criador/**").authenticated()
 
                                                 .requestMatchers("/api/admin/**", "/adm/**").hasRole("ADMIN")
 
-                                                // Qualquer outra coisa exige autenticação
+                                                // Qualquer outra coisa exige autenticaÃ§Ã£o
                                                 .anyRequest().authenticated())
                                 .formLogin((form) -> form
                                                 .loginPage("/selecao_login.html")

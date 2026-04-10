@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="img/EducaBit_logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <title>EDUCABIT</title>
+</head>
+<div class="conteudo">
+
+  <body style="background-color: #f5f5f5;">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height:100vh; position:fixed">
+      <a href="adm.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <span class="fs-4">Controle Admin</span>
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li>
+          <a href="adm_user.html" class="nav-link text-white hover-link">
+            <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#speedometer2" />
+            </svg>
+            Contas de usuários
+          </a>
+        </li>
+        <li>
+          <a href="adm_aulas.html" class="nav-link text-white hover-link">
+            <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#speedometer2" />
+            </svg>
+            Admin de aulas
+          </a>
+        </li>
+        <li>
+          <a href="adm_jogos.html" class="nav-link text-white hover-link" class="texto">
+            <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#speedometer2" />
+            </svg>
+            Admin de jogos
+          </a>
+        </li>
+      </ul>
+      <hr>
+      <div class="dropdown">
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <strong>Administrador</strong>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+          <li><a class="dropdown-item" href="tela_inicial.html">Deslogar</a></li>
+        </ul>
+      </div>
+    </div>
+    <!---->
+    <div class="conteiner">
+      <div class="titulo" style="margin-top: 5%; margin-bottom: 15px;">
+        <h1>Administrar jogos/atividades</h1>
+      </div>
+      <div class="border p-3 mb-4" style="width: 750px; background:#fff;">
+        <h5 class="mb-3">Cadastrar/Atualizar Atividade</h5>
+        <div class="row g-2">
+          <input type="hidden" id="idAtividade">
+          <div class="col-md-6">
+            <input id="tituloAtividade" class="form-control" placeholder="Título da Atividade" />
+          </div>
+          <div class="col-md-6">
+            <select id="tipoAtividade" class="form-select">
+              <option value="" disabled selected>Tipo de Atividade</option>
+              <option value="PLUGADA">Plugada</option>
+              <option value="DESPLUGADA">Desplugada</option>
+            </select>
+          </div>
+          <div class="col-md-12">
+            <textarea id="descricaoAtividade" class="form-control" placeholder="Descrição da Atividade"
+              rows="2"></textarea>
+          </div>
+          <div class="col-md-6">
+            <div class="form-check pt-2">
+              <input class="form-check-input" type="checkbox" id="possuiAcessibilidade">
+              <label class="form-check-label" for="possuiAcessibilidade">
+                Possui Acessibilidade?
+              </label>
+            </div>
+          </div>
+          <div class="col-md-6" id="divTipoAcessibilidade" style="display: none;">
+            <select id="tipoAcessibilidadeSelect" class="form-select">
+              <option value="" disabled selected>Selecione a Acessibilidade</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="arquivoAtividade" class="form-label visually-hidden">Arquivo</label>
+            <input class="form-control" type="file" id="arquivoAtividade">
+          </div>
+        </div>
+        <div class="mt-3 d-flex gap-2">
+          <button class="btn btn-primary" id="btnSalvarAtividade">Salvar</button>
+          <button class="btn btn-secondary" id="btnLimparAtividade">Limpar</button>
+        </div>
+      </div>
+
+      <div class="tabela">
+        <div class="tabela border" style="background:#fff;">
+          <table class="table table-striped mb-0" style="width: 750px;">
+            <thead>
+              <tr class="px-3">
+                <th>ID</th>
+                <th>Título</th>
+                <th>Tipo</th>
+                <th>Acessibilidade</th>
+                <th>Editar</th>
+                <th>Excluir</th>
+              </tr>
+            </thead>
+            <tbody id="atividadesBody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"></script>
+    <script>
+      const idAtividade = document.getElementById('idAtividade');
+      const tituloAtividade = document.getElementById('tituloAtividade');
+      const tipoAtividade = document.getElementById('tipoAtividade');
+      const descricaoAtividade = document.getElementById('descricaoAtividade');
+      const possuiAcessibilidade = document.getElementById('possuiAcessibilidade');
+      const divTipoAcessibilidade = document.getElementById('divTipoAcessibilidade');
+      const tipoAcessibilidadeSelect = document.getElementById('tipoAcessibilidadeSelect');
+      const arquivoAtividade = document.getElementById('arquivoAtividade');
+      const btnSalvar = document.getElementById('btnSalvarAtividade');
+      const btnLimpar = document.getElementById('btnLimparAtividade');
+      const corpo = document.getElementById('atividadesBody');
+
+      // Limpar formulário
+      const limparForm = () => {
+        idAtividade.value = '';
+        tituloAtividade.value = '';
+        tipoAtividade.value = '';
+        descricaoAtividade.value = '';
+        descricaoAtividade.value = '';
+        possuiAcessibilidade.checked = false;
+        divTipoAcessibilidade.style.display = 'none';
+        tipoAcessibilidadeSelect.value = '';
+        arquivoAtividade.value = '';
+      };
+
+      btnLimpar.addEventListener('click', limparForm);
+
+      // Controle de visibilidade do campo de acessibilidade
+      possuiAcessibilidade.addEventListener('change', () => {
+        if (possuiAcessibilidade.checked) {
+          divTipoAcessibilidade.style.display = 'block';
+        } else {
+          divTipoAcessibilidade.style.display = 'none';
+          tipoAcessibilidadeSelect.value = '';
+        }
+      });
+
+      // Carregar Tipos de Acessibilidade
+      async function carregarTiposAcessibilidade() {
+        try {
+          const res = await fetch('/educabit/tipoAcessibilidade');
+          if (res.ok) {
+            const tipos = await res.json();
+            // Manter a opção default
+            tipoAcessibilidadeSelect.innerHTML = '<option value="" disabled selected>Selecione a Acessibilidade</option>';
+            tipos.forEach(t => {
+              const opt = document.createElement('option');
+              opt.value = t.idTipoAcessibilidade;
+              opt.textContent = t.nome;
+              tipoAcessibilidadeSelect.appendChild(opt);
+            });
+          }
+        } catch (e) {
+          console.error("Erro ao carregar tipos de acessibilidade", e);
+        }
+      }
+      carregarTiposAcessibilidade();
+
+      // Carregar Lista
+      async function carregarAtividades() {
+        try {
+          const res = await fetch('/educabit/atividade');
+          if (!res.ok) throw new Error('Falha ao carregar atividades');
+          const dados = await res.json();
+          corpo.innerHTML = '';
+          dados.forEach(a => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>${a.idAtividade || ''}</td>
+              <td>${a.tituloAtividade || ''}</td>
+              <td>${a.tipoAtividade || ''}</td>
+              <td>${a.possuiAcessibilidade ? 'Sim' : 'Não'}</td>
+              <td><button class="btn btn-sm btn-success">Editar</button></td>
+              <td><button class="btn btn-sm btn-danger">Excluir</button></td>
+            `;
+
+            // Botão Editar
+            tr.querySelector('.btn-success').addEventListener('click', () => {
+              idAtividade.value = a.idAtividade;
+              tituloAtividade.value = a.tituloAtividade;
+              tipoAtividade.value = a.tipoAtividade;
+              descricaoAtividade.value = a.descricaoAtividade;
+              possuiAcessibilidade.checked = a.possuiAcessibilidade;
+              if (a.possuiAcessibilidade) {
+                 divTipoAcessibilidade.style.display = 'block';
+                 if (a.tipoAcessibilidade) {
+                     tipoAcessibilidadeSelect.value = a.tipoAcessibilidade.idTipoAcessibilidade || '';
+                 }
+              } else {
+                 divTipoAcessibilidade.style.display = 'none';
+                 tipoAcessibilidadeSelect.value = '';
+              }
+              // Arquivo não pode ser setado via JS por segurança
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Botão Excluir
+            tr.querySelector('.btn-danger').addEventListener('click', async () => {
+              if (!confirm(`Excluir atividade #${a.idAtividade}?`)) return;
+              try {
+                const resDel = await fetch(`/educabit/atividade/${a.idAtividade}`, { method: 'DELETE' });
+                if (!resDel.ok) throw new Error('Erro na exclusão');
+                carregarAtividades();
+              } catch (err) {
+                alert('Erro ao excluir: ' + err.message);
+              }
+            });
+            corpo.appendChild(tr);
+          });
+        } catch (e) {
+          corpo.innerHTML = '<tr><td colspan="6">Erro ao carregar atividades.</td></tr>';
+        }
+      }
+
+      // Salvar (Create/Update)
+      btnSalvar.addEventListener('click', async () => {
+        if (!tituloAtividade.value || !tipoAtividade.value) {
+          alert('Título e Tipo são obrigatórios.');
+          return;
+        }
+
+        const dto = {
+          tituloAtividade: tituloAtividade.value,
+          descricaoAtividade: descricaoAtividade.value,
+          tipoAtividade: tipoAtividade.value,
+          tipoAtividade: tipoAtividade.value,
+          possuiAcessibilidade: possuiAcessibilidade.checked,
+          tipoAcessibilidade: possuiAcessibilidade.checked ? tipoAcessibilidadeSelect.value : null
+        };
+
+        const formData = new FormData();
+        formData.append('atividade', new Blob([JSON.stringify(dto)], { type: 'application/json' }));
+        if (arquivoAtividade.files[0]) {
+          formData.append('arquivo', arquivoAtividade.files[0]);
+        }
+
+        const id = idAtividade.value;
+        const url = id ? `/educabit/atividade/${id}` : '/educabit/atividade';
+        const method = id ? 'PUT' : 'POST';
+
+        try {
+          const response = await fetch(url, {
+            method: method,
+            body: formData
+          });
+
+          if (response.ok) {
+            alert('Atividade salva com sucesso!');
+            limparForm();
+            carregarAtividades();
+          } else {
+            const txt = await response.text();
+            alert('Erro ao salvar: ' + txt);
+          }
+        } catch (error) {
+          console.error(error);
+          alert('Erro de conexão.');
+        }
+      });
+
+      carregarAtividades();
+    </script>
+  </body>
+
+</html>

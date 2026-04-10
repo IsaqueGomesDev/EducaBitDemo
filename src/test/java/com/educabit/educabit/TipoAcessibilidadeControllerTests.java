@@ -1,7 +1,7 @@
 package com.educabit.educabit;
 
-import com.educabit.educabit.Model.TipoAcessibilidade;
-import com.educabit.educabit.Repositores.TipoAcessibilidadeRepository;
+import com.educabit.educabit.model.TipoAcessibilidade;
+import com.educabit.educabit.repositories.TipoAcessibilidadeRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +35,8 @@ class TipoAcessibilidadeControllerTests {
     void criarTipoAcessibilidade() throws Exception {
         String json = """
                 {
-                    "nome": "Deficiência Visual",
-                    "descricao": "Atividades adaptadas para pessoas com deficiência visual"
+                    "nome": "DeficiÃªncia Visual",
+                    "descricao": "Atividades adaptadas para pessoas com deficiÃªncia visual"
                 }
                 """;
 
@@ -44,15 +44,15 @@ class TipoAcessibilidadeControllerTests {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.nome").value("Deficiência Visual"))
-                .andExpect(jsonPath("$.descricao").value("Atividades adaptadas para pessoas com deficiência visual"));
+                .andExpect(jsonPath("$.nome").value("DeficiÃªncia Visual"))
+                .andExpect(jsonPath("$.descricao").value("Atividades adaptadas para pessoas com deficiÃªncia visual"));
     }
 
     @Test
     @WithMockUser(roles = "ADMIN")
     @DisplayName("GET /educabit/tipoAcessibilidade deve listar todos")
     void listarTodosTipos() throws Exception {
-        TipoAcessibilidade tipo = new TipoAcessibilidade("Visual", "Descrição teste");
+        TipoAcessibilidade tipo = new TipoAcessibilidade("Visual", "DescriÃ§Ã£o teste");
         tipoAcessibilidadeRepository.save(tipo);
 
         mockMvc.perform(get("/educabit/tipoAcessibilidade"))
@@ -140,3 +140,5 @@ class TipoAcessibilidadeControllerTests {
                 .andExpect(status().isNotFound());
     }
 }
+
+
