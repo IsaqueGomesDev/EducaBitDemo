@@ -3,7 +3,6 @@ package com.educabit.educabit.Model;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.EnumType;
@@ -12,6 +11,7 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Column;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -19,22 +19,29 @@ import jakarta.persistence.SequenceGenerator;
 public abstract class Atividade {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "atividade_seq")
+    @Column(name = "idatividade")
     private int idAtividade;
     @Enumerated(EnumType.STRING)
+    @Column(name = "tipoatividade")
     private TipoAtividade tipoAtividade;
+    @Column(name = "tituloatividade")
     private String tituloAtividade;
+    @Column(name = "descricaoatividade")
     private String descricaoAtividade;
+    @Column(name = "possuiacessibilidade")
     private boolean possuiAcessibilidade;
     @ManyToOne
-    @JoinColumn(name = "idTipoAcessibilidade")
+    @JoinColumn(name = "idtipoacessibilidade")
     private TipoAcessibilidade tipoAcessibilidade;
+    @Column(name = "anexaratividade")
     private String anexarAtividade;
 
-    public Atividade(){
+    public Atividade() {
 
     }
 
-    public Atividade(int idAtividade, TipoAtividade tipoAtividade, String tituloAtividade, String descricaoAtividade, boolean possuiAcessibilidade, TipoAcessibilidade tipoAcessibilidade, String anexarAtividade) {
+    public Atividade(int idAtividade, TipoAtividade tipoAtividade, String tituloAtividade, String descricaoAtividade,
+            boolean possuiAcessibilidade, TipoAcessibilidade tipoAcessibilidade, String anexarAtividade) {
         this.idAtividade = idAtividade;
         this.tipoAtividade = tipoAtividade;
         this.tituloAtividade = tituloAtividade;
@@ -43,8 +50,6 @@ public abstract class Atividade {
         this.tipoAcessibilidade = tipoAcessibilidade;
         this.anexarAtividade = anexarAtividade;
     }
-
-
 
     public int getIdAtividade() {
         return idAtividade;

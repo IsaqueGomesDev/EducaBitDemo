@@ -7,10 +7,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
 @Entity
-@Table(name = "tipoAcessibilidade")
+@Table(name = "tipoacessibilidade")
 public class TipoAcessibilidade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @jakarta.persistence.Column(name = "idtipoacessibilidade")
     private int idTipoAcessibilidade;
     private String nome;
     private String descricao;
@@ -47,4 +48,3 @@ public class TipoAcessibilidade {
         this.descricao = descricao;
     }
 }
-

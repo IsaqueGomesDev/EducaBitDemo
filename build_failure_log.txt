@@ -1,0 +1,288 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.educabit:educabit >------------------------
+[INFO] Building educabit 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ educabit ---
+[INFO] Deleting D:\MEGA\Licenciatura em Computação UPE\2º Período\Programação II\EducaBitDemo\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ educabit ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 61 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ educabit ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 48 source files with javac [debug parameters release 21] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/RegistroCriadorService.java:[22,13] cannot find symbol
+  symbol:   method setLattesUrl(java.lang.String)
+  location: variable user of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/RegistroCriadorService.java:[35,17] cannot find symbol
+  symbol:   method setDiplomaUrl(java.lang.String)
+  location: variable user of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/RegistroCriadorService.java:[39,17] cannot find symbol
+  symbol:   method setBio(java.lang.String)
+  location: variable user of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/RegistroCriadorService.java:[41,17] cannot find symbol
+  symbol:   method setPhone(java.lang.String)
+  location: variable user of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/RegistroCriadorService.java:[43,17] cannot find symbol
+  symbol:   method setCpf(java.lang.String)
+  location: variable user of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/RegistroCriadorService.java:[46,13] cannot find symbol
+  symbol:   method setStatus(com.educabit.educabit.Enums.UserStatus)
+  location: variable user of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/RegistroCriadorService.java:[56,17] cannot find symbol
+  symbol:   method setStatus(com.educabit.educabit.Enums.UserStatus)
+  location: variable user of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/RegistroCriadorService.java:[58,17] cannot find symbol
+  symbol:   method setStatus(com.educabit.educabit.Enums.UserStatus)
+  location: variable user of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/ConteudoService.java:[20,17] cannot find symbol
+  symbol:   method setTitle(java.lang.String)
+  location: variable conteudo of type com.educabit.educabit.Model.Conteudo
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/ConteudoService.java:[21,17] cannot find symbol
+  symbol:   method setBody(java.lang.String)
+  location: variable conteudo of type com.educabit.educabit.Model.Conteudo
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/ConteudoService.java:[22,17] cannot find symbol
+  symbol:   method setPublic(boolean)
+  location: variable conteudo of type com.educabit.educabit.Model.Conteudo
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/ConteudoService.java:[23,17] cannot find symbol
+  symbol:   method setAuthor(com.educabit.educabit.Model.Usuario)
+  location: variable conteudo of type com.educabit.educabit.Model.Conteudo
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/ConteudoService.java:[26,19] cannot find symbol
+  symbol:   method getRole()
+  location: variable author of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/ConteudoService.java:[27,21] cannot find symbol
+  symbol:   method setStatus(com.educabit.educabit.Enums.ContentStatus)
+  location: variable conteudo of type com.educabit.educabit.Model.Conteudo
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/ConteudoService.java:[29,21] cannot find symbol
+  symbol:   method setStatus(com.educabit.educabit.Enums.ContentStatus)
+  location: variable conteudo of type com.educabit.educabit.Model.Conteudo
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/CriadorController.java:[46,93] cannot find symbol
+  symbol:   method getId()
+  location: variable usuario of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[29,21] cannot find symbol
+  symbol:   method setUsername(java.lang.String)
+  location: variable usuario1 of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[30,21] cannot find symbol
+  symbol:   method setType(java.lang.String)
+  location: variable usuario1 of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[31,21] cannot find symbol
+  symbol:   method setEmail(java.lang.String)
+  location: variable usuario1 of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[32,21] cannot find symbol
+  symbol:   method setPassword(java.lang.String)
+  location: variable usuario1 of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[33,21] cannot find symbol
+  symbol:   method setCpf(java.lang.String)
+  location: variable usuario1 of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[36,21] cannot find symbol
+  symbol:   method setStatus(com.educabit.educabit.Enums.UserStatus)
+  location: variable usuario1 of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[39,21] cannot find symbol
+  symbol:   method setRole(com.educabit.educabit.Enums.Role)
+  location: variable usuario1 of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[83,25] cannot find symbol
+  symbol:   method setUsername(java.lang.String)
+  location: variable usuarioModel of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[85,25] cannot find symbol
+  symbol:   method setType(java.lang.String)
+  location: variable usuarioModel of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[87,25] cannot find symbol
+  symbol:   method setEmail(java.lang.String)
+  location: variable usuarioModel of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[89,25] cannot find symbol
+  symbol:   method setPassword(java.lang.String)
+  location: variable usuarioModel of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[91,25] cannot find symbol
+  symbol:   method setCpf(java.lang.String)
+  location: variable usuarioModel of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[104,68] cannot find symbol
+  symbol:   method getUsername()
+  location: variable usuario of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[104,103] cannot find symbol
+  symbol:   method getId()
+  location: variable usuario of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/CustomUserDetailsService.java:[27,60] cannot find symbol
+  symbol:   method getRole()
+  location: variable usuario of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/CustomUserDetailsService.java:[33,31] cannot find symbol
+  symbol:   method getType()
+  location: variable usuario of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/CustomUserDetailsService.java:[33,59] cannot find symbol
+  symbol:   method getType()
+  location: variable usuario of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/CustomUserDetailsService.java:[37,34] cannot find symbol
+  symbol:   method getUsername()
+  location: variable usuario of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/CustomUserDetailsService.java:[38,34] cannot find symbol
+  symbol:   method getPassword()
+  location: variable usuario of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/config/AccessLoggingInterceptor.java:[41,12] cannot find symbol
+  symbol:   method setIpAddress(java.lang.String)
+  location: variable log of type com.educabit.educabit.Model.AccessLog
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/config/AccessLoggingInterceptor.java:[42,12] cannot find symbol
+  symbol:   method setUserAgent(java.lang.String)
+  location: variable log of type com.educabit.educabit.Model.AccessLog
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/config/AccessLoggingInterceptor.java:[43,12] cannot find symbol
+  symbol:   method setReferer(java.lang.String)
+  location: variable log of type com.educabit.educabit.Model.AccessLog
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/config/AccessLoggingInterceptor.java:[44,12] cannot find symbol
+  symbol:   method setLocation(java.lang.String)
+  location: variable log of type com.educabit.educabit.Model.AccessLog
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/config/AccessLoggingInterceptor.java:[45,12] cannot find symbol
+  symbol:   method setRequestUrl(java.lang.String)
+  location: variable log of type com.educabit.educabit.Model.AccessLog
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/config/AccessLoggingInterceptor.java:[46,12] cannot find symbol
+  symbol:   method setMethod(java.lang.String)
+  location: variable log of type com.educabit.educabit.Model.AccessLog
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/config/AccessLoggingInterceptor.java:[50,16] cannot find symbol
+  symbol:   method setUsername(java.lang.String)
+  location: variable log of type com.educabit.educabit.Model.AccessLog
+[INFO] 42 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.909 s
+[INFO] Finished at: 2025-12-16T18:55:34-03:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project educabit: Compilation failure: Compilation failure: 
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/RegistroCriadorService.java:[22,13] cannot find symbol
+[ERROR]   symbol:   method setLattesUrl(java.lang.String)
+[ERROR]   location: variable user of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/RegistroCriadorService.java:[35,17] cannot find symbol
+[ERROR]   symbol:   method setDiplomaUrl(java.lang.String)
+[ERROR]   location: variable user of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/RegistroCriadorService.java:[39,17] cannot find symbol
+[ERROR]   symbol:   method setBio(java.lang.String)
+[ERROR]   location: variable user of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/RegistroCriadorService.java:[41,17] cannot find symbol
+[ERROR]   symbol:   method setPhone(java.lang.String)
+[ERROR]   location: variable user of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/RegistroCriadorService.java:[43,17] cannot find symbol
+[ERROR]   symbol:   method setCpf(java.lang.String)
+[ERROR]   location: variable user of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/RegistroCriadorService.java:[46,13] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.educabit.educabit.Enums.UserStatus)
+[ERROR]   location: variable user of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/RegistroCriadorService.java:[56,17] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.educabit.educabit.Enums.UserStatus)
+[ERROR]   location: variable user of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/RegistroCriadorService.java:[58,17] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.educabit.educabit.Enums.UserStatus)
+[ERROR]   location: variable user of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/ConteudoService.java:[20,17] cannot find symbol
+[ERROR]   symbol:   method setTitle(java.lang.String)
+[ERROR]   location: variable conteudo of type com.educabit.educabit.Model.Conteudo
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/ConteudoService.java:[21,17] cannot find symbol
+[ERROR]   symbol:   method setBody(java.lang.String)
+[ERROR]   location: variable conteudo of type com.educabit.educabit.Model.Conteudo
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/ConteudoService.java:[22,17] cannot find symbol
+[ERROR]   symbol:   method setPublic(boolean)
+[ERROR]   location: variable conteudo of type com.educabit.educabit.Model.Conteudo
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/ConteudoService.java:[23,17] cannot find symbol
+[ERROR]   symbol:   method setAuthor(com.educabit.educabit.Model.Usuario)
+[ERROR]   location: variable conteudo of type com.educabit.educabit.Model.Conteudo
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/ConteudoService.java:[26,19] cannot find symbol
+[ERROR]   symbol:   method getRole()
+[ERROR]   location: variable author of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/ConteudoService.java:[27,21] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.educabit.educabit.Enums.ContentStatus)
+[ERROR]   location: variable conteudo of type com.educabit.educabit.Model.Conteudo
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/ConteudoService.java:[29,21] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.educabit.educabit.Enums.ContentStatus)
+[ERROR]   location: variable conteudo of type com.educabit.educabit.Model.Conteudo
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/CriadorController.java:[46,93] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable usuario of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[29,21] cannot find symbol
+[ERROR]   symbol:   method setUsername(java.lang.String)
+[ERROR]   location: variable usuario1 of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[30,21] cannot find symbol
+[ERROR]   symbol:   method setType(java.lang.String)
+[ERROR]   location: variable usuario1 of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[31,21] cannot find symbol
+[ERROR]   symbol:   method setEmail(java.lang.String)
+[ERROR]   location: variable usuario1 of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[32,21] cannot find symbol
+[ERROR]   symbol:   method setPassword(java.lang.String)
+[ERROR]   location: variable usuario1 of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[33,21] cannot find symbol
+[ERROR]   symbol:   method setCpf(java.lang.String)
+[ERROR]   location: variable usuario1 of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[36,21] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.educabit.educabit.Enums.UserStatus)
+[ERROR]   location: variable usuario1 of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[39,21] cannot find symbol
+[ERROR]   symbol:   method setRole(com.educabit.educabit.Enums.Role)
+[ERROR]   location: variable usuario1 of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[83,25] cannot find symbol
+[ERROR]   symbol:   method setUsername(java.lang.String)
+[ERROR]   location: variable usuarioModel of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[85,25] cannot find symbol
+[ERROR]   symbol:   method setType(java.lang.String)
+[ERROR]   location: variable usuarioModel of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[87,25] cannot find symbol
+[ERROR]   symbol:   method setEmail(java.lang.String)
+[ERROR]   location: variable usuarioModel of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[89,25] cannot find symbol
+[ERROR]   symbol:   method setPassword(java.lang.String)
+[ERROR]   location: variable usuarioModel of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[91,25] cannot find symbol
+[ERROR]   symbol:   method setCpf(java.lang.String)
+[ERROR]   location: variable usuarioModel of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[104,68] cannot find symbol
+[ERROR]   symbol:   method getUsername()
+[ERROR]   location: variable usuario of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Controllers/UsuarioController.java:[104,103] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable usuario of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/CustomUserDetailsService.java:[27,60] cannot find symbol
+[ERROR]   symbol:   method getRole()
+[ERROR]   location: variable usuario of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/CustomUserDetailsService.java:[33,31] cannot find symbol
+[ERROR]   symbol:   method getType()
+[ERROR]   location: variable usuario of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/CustomUserDetailsService.java:[33,59] cannot find symbol
+[ERROR]   symbol:   method getType()
+[ERROR]   location: variable usuario of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/CustomUserDetailsService.java:[37,34] cannot find symbol
+[ERROR]   symbol:   method getUsername()
+[ERROR]   location: variable usuario of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/Services/CustomUserDetailsService.java:[38,34] cannot find symbol
+[ERROR]   symbol:   method getPassword()
+[ERROR]   location: variable usuario of type com.educabit.educabit.Model.Usuario
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/config/AccessLoggingInterceptor.java:[41,12] cannot find symbol
+[ERROR]   symbol:   method setIpAddress(java.lang.String)
+[ERROR]   location: variable log of type com.educabit.educabit.Model.AccessLog
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/config/AccessLoggingInterceptor.java:[42,12] cannot find symbol
+[ERROR]   symbol:   method setUserAgent(java.lang.String)
+[ERROR]   location: variable log of type com.educabit.educabit.Model.AccessLog
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/config/AccessLoggingInterceptor.java:[43,12] cannot find symbol
+[ERROR]   symbol:   method setReferer(java.lang.String)
+[ERROR]   location: variable log of type com.educabit.educabit.Model.AccessLog
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/config/AccessLoggingInterceptor.java:[44,12] cannot find symbol
+[ERROR]   symbol:   method setLocation(java.lang.String)
+[ERROR]   location: variable log of type com.educabit.educabit.Model.AccessLog
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/config/AccessLoggingInterceptor.java:[45,12] cannot find symbol
+[ERROR]   symbol:   method setRequestUrl(java.lang.String)
+[ERROR]   location: variable log of type com.educabit.educabit.Model.AccessLog
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/config/AccessLoggingInterceptor.java:[46,12] cannot find symbol
+[ERROR]   symbol:   method setMethod(java.lang.String)
+[ERROR]   location: variable log of type com.educabit.educabit.Model.AccessLog
+[ERROR] /D:/MEGA/Licenciatura em Computação UPE/2º Período/Programação II/EducaBitDemo/src/main/java/com/educabit/educabit/config/AccessLoggingInterceptor.java:[50,16] cannot find symbol
+[ERROR]   symbol:   method setUsername(java.lang.String)
+[ERROR]   location: variable log of type com.educabit.educabit.Model.AccessLog
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

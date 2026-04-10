@@ -1,12 +1,12 @@
 package com.educabit.educabit.dtos;
 
-public record AtividadeDto(
-    String tipoAtividade,
-    String tituloAtividade,
-    String descricaoAtividade,
-    boolean possuiAcessibilidade,
-    String tipoAcessibilidade,
-    String anexarAtividade
-) {
-}
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+public record AtividadeDto(
+        @JsonProperty("tipoAtividade") String tipoAtividade,
+        @JsonProperty("tituloAtividade") String tituloAtividade,
+        @JsonProperty("descricaoAtividade") String descricaoAtividade,
+        @JsonProperty("possuiAcessibilidade") boolean possuiAcessibilidade,
+        @JsonProperty("tipoAcessibilidade") String tipoAcessibilidade,
+        @JsonProperty("anexarAtividade") String anexarAtividade) {
+}

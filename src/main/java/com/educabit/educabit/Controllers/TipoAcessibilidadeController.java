@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -19,7 +20,8 @@ public class TipoAcessibilidadeController {
     TipoAcessibilidadeRepository tipoAcessibilidadeRepository;
 
     @PostMapping
-    public ResponseEntity<TipoAcessibilidade> AdicionarTipoAcessibilidade(@RequestBody TipoAcessibilidadeDto tipoAcessibilidade) {
+    public ResponseEntity<TipoAcessibilidade> AdicionarTipoAcessibilidade(
+            @RequestBody @NonNull TipoAcessibilidadeDto tipoAcessibilidade) {
         var tipoAcessibilidade1 = new TipoAcessibilidade();
         BeanUtils.copyProperties(tipoAcessibilidade, tipoAcessibilidade1);
         return ResponseEntity.status(HttpStatus.CREATED).body(tipoAcessibilidadeRepository.save(tipoAcessibilidade1));
@@ -31,18 +33,20 @@ public class TipoAcessibilidadeController {
     }
 
     @GetMapping("/{idTipoAcessibilidade}")
-    public ResponseEntity<?> BuscarPeloIdTipoAcessibilidade(@PathVariable(value="idTipoAcessibilidade") Integer idTipoAcessibilidade) {
+    public ResponseEntity<?> BuscarPeloIdTipoAcessibilidade(
+            @PathVariable(value = "idTipoAcessibilidade") @NonNull Integer idTipoAcessibilidade) {
         Optional<TipoAcessibilidade> tipoAcessibilidade = tipoAcessibilidadeRepository.findById(idTipoAcessibilidade);
-        if(!tipoAcessibilidade.isPresent()) {
+        if (tipoAcessibilidade.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tipo de acessibilidade não encontrado");
         }
         return ResponseEntity.status(HttpStatus.OK).body(tipoAcessibilidade.get());
     }
 
     @DeleteMapping("/{idTipoAcessibilidade}")
-    public ResponseEntity<String> RemoverTipoAcessibilidade(@PathVariable(value="idTipoAcessibilidade") Integer idTipoAcessibilidade) {
+    public ResponseEntity<String> RemoverTipoAcessibilidade(
+            @PathVariable(value = "idTipoAcessibilidade") @NonNull Integer idTipoAcessibilidade) {
         Optional<TipoAcessibilidade> tipoAcessibilidade = tipoAcessibilidadeRepository.findById(idTipoAcessibilidade);
-        if(!tipoAcessibilidade.isPresent()) {
+        if (tipoAcessibilidade.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tipo de acessibilidade não encontrado");
         }
         tipoAcessibilidadeRepository.delete(tipoAcessibilidade.get());
@@ -50,14 +54,15 @@ public class TipoAcessibilidadeController {
     }
 
     @PutMapping("/{idTipoAcessibilidade}")
-    public ResponseEntity<?> AtualizarTipoAcessibilidade(@PathVariable(value="idTipoAcessibilidade") Integer idTipoAcessibilidade, @RequestBody TipoAcessibilidadeDto dto) {
+    public ResponseEntity<?> AtualizarTipoAcessibilidade(
+            @PathVariable(value = "idTipoAcessibilidade") @NonNull Integer idTipoAcessibilidade,
+            @RequestBody @NonNull TipoAcessibilidadeDto dto) {
         Optional<TipoAcessibilidade> tipoAcessibilidade = tipoAcessibilidadeRepository.findById(idTipoAcessibilidade);
-        if(!tipoAcessibilidade.isPresent()) {
+        if (tipoAcessibilidade.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tipo de acessibilidade não encontrado");
         }
-        var tipoAcessibilidadeModel = tipoAcessibilidade.get();
+        TipoAcessibilidade tipoAcessibilidadeModel = tipoAcessibilidade.get();
         BeanUtils.copyProperties(dto, tipoAcessibilidadeModel);
         return ResponseEntity.status(HttpStatus.OK).body(tipoAcessibilidadeRepository.save(tipoAcessibilidadeModel));
     }
 }
-
